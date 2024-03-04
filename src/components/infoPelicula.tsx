@@ -25,11 +25,11 @@ export const InfoPelicula = ({config} : {config: any}) => {
                     {config.pelicula.titulo}
                 </h2>
             </div>
-            <div className="w-full font-semibold flex flex-col items-center justify-center mt-10 pl-5">
-                <h3 className={`${kanit.className} text-${config.cine.color} text-xl h-auto text-left underline underline-offset-4 w-full`}>
+            <div className="w-full font-semibold flex flex-col items-center justify-center pl-5">
+                <h3 className={`${kanit.className} text-${config.cine.color} text-2xl h-auto text-left underline underline-offset-4 w-full`}>
                     {mesesCadena}
                 </h3>
-                <div className="mt-5 w-full text-xl">
+                <div className="mt-5 w-full text-2xl">
                     {horarios?.map((horario: string, index: number) => (
                         <div key={index} className={`${oswald.className} text-${config.cine.color}`}>{horario}</div>
                     ))}

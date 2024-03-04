@@ -25,6 +25,7 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
     const [proyecciones, setProyecciones] = useState(config.proyecciones??[]);
     const [indiceActual, setIndiceActual] = useState(0);
     const [temporizador, setTemporizador] = useState(null as any|null);
+    const [isLoadingFoto, setIsLoadingFoto] = useState(false);
 
     useEffect(() => {
         if(!config.cine || !config.pelicula){
@@ -64,6 +65,7 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
 
         setProyecciones(nuevasProyecciones);
         setConfig({...config, proyecciones: nuevasProyecciones})
+        console.log(config)
     }
 
     const handleEliminarDiaProyeccion = (index: number) => {
@@ -116,6 +118,8 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
     }
 
     const handleBuscarFotos = async (titulo: string) => {
+
+        setIsLoadingFoto(true);
         // Definir un tiempo de espera (en milisegundos)
         const tiempoEspera = 500; // Puedes ajustar este valor según tus necesidades
 
@@ -146,19 +150,22 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
                 setImagenes(imagenes);
                 setIndiceActual(0);
                 setConfig({ ...config, pelicula: { ...config.pelicula, titulo, imagen: imagenes[0] } });
+                setIsLoadingFoto(false);
             } catch (error) {
                 console.error(error);
+                setIsLoadingFoto(false);
             }
         }, tiempoEspera));
     };
 
     const fotoAnterior = () => {
-        setIndiceActual((prevIndice) => (prevIndice > 0 ? prevIndice - 1 : imagenes.length - 1));
+        setIndiceActual(indiceActual > 0 ? indiceActual - 1 : imagenes.length - 1);
         setConfig({...config, pelicula: { ...config.pelicula, imagen: imagenes[indiceActual] }})
+
     };
 
     const fotoSiguiente = () => {
-        setIndiceActual((prevIndice) => (prevIndice < imagenes.length - 1 ? prevIndice + 1 : 0));
+        setIndiceActual(indiceActual < imagenes.length - 1 ? indiceActual + 1 : 0);
         setConfig({...config, pelicula: { ...config.pelicula, imagen: imagenes[indiceActual] }})
     };
 
@@ -176,6 +183,9 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
                             label="Cine"
                             onChange={handleChangeCine}
                         >
+                            <MenuItem key={"none"} value={undefined}>
+                                -
+                            </MenuItem>
                             {cines.map((cine) => (
                                 <MenuItem key={cine.id} value={cine.id}>
                                     {cine.nombre}
@@ -201,11 +211,17 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
                         fullWidth
                         sx={{ marginBottom: "10px" }}
                     />
-                    <div className="relative row-span-3 w-full h-full flex items-center justify-center">
-                        <Button onClick={fotoAnterior} sx={{magin: "0 5px"}}>Anterior</Button>
-                        <span> Foto {indiceActual+1}/{imagenes.length}</span>
-                        <Button onClick={fotoSiguiente} sx={{magin: "0 5px"}}>Siguiente</Button>
-                    </div>
+                    <Box>
+                        <Typography variant="subtitle1">Imagen</Typography>
+                        {
+                            isLoadingFoto ? <span>{isLoadingFoto ? "Cargando..." : ""}</span> :
+                            <Stack direction={"row"} spacing={2}>
+                                <Button onClick={fotoAnterior} sx={{magin: "0 5px"}}>Anterior</Button>
+                                <Typography variant="body1"> Foto {indiceActual+1}/{imagenes.length}</Typography>
+                                <Button onClick={fotoSiguiente} sx={{magin: "0 5px"}}>Siguiente</Button>
+                            </Stack>
+                    }
+                    </Box>
                     {proyecciones && proyecciones.map((proyeccion: any, indexProyeccion: number) => (
                         <Card key={indexProyeccion} sx={{backgroundColor: "#fafafa", margin: "5px 0"}}>
                             <DatePicker
@@ -221,24 +237,27 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
                             </Button>
                             {proyeccion.horarios.map((horario: any, indexHorario: number) => (
                                 <div key={indexHorario}>
-                                    <TextField
-                                        label="Hora"
-                                        id={"hora-input"+indexHorario}
-                                        value={horario.hora}
-                                        onChange={(e) => handleChangeProyecciones(indexProyeccion, indexHorario, 'hora', e.target.value)}
-                                        sx={{ marginBottom: "10px" }}
-                                    />
-                                    <Checkbox
-                                        checked={horario.vose}
-                                        onChange={(e) => handleChangeProyecciones(indexProyeccion, indexHorario, 'vose', e.target.checked)}
+                                    <Stack direction="row" spacing={2}>
+                                        <TextField
+                                            label="Hora"
+                                            id={"hora-input"+indexHorario}
+                                            value={horario.hora}
+                                            onChange={(e) => handleChangeProyecciones(indexProyeccion, indexHorario, 'hora', e.target.value)}
+                                            sx={{ marginBottom: "10px" }}
                                         />
-                                    <span>VOSE</span>
-                                    <Button
-                                        disabled={proyeccion.horarios.length === 1}
-                                        onClick={() => handleEliminarHorario(indexProyeccion, indexHorario)}
-                                    >
-                                        Eliminar Horario
-                                    </Button>
+                                        <Checkbox
+                                            checked={horario.vose}
+                                            onChange={(e) => handleChangeProyecciones(indexProyeccion, indexHorario, 'vose', e.target.checked)}
+                                        />
+                                        <span>VOSE</span>
+                                        <Button
+                                            disabled={proyeccion.horarios.length === 1}
+                                            onClick={() => handleEliminarHorario(indexProyeccion, indexHorario)}
+                                        >
+                                            Eliminar
+                                        </Button>
+                                    </Stack>
+
                                 </div>
                             ))}
                             <Button
