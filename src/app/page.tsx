@@ -16,7 +16,7 @@ export default function Home() {
     }, [config]);
 
     return (
-        <div className="flex flex-row space-x-2">
+        <div className="flex flex-row">
             <div className="hidden">
                 <div className="bg-azul shadow-azul text-azul"/>
                 <div className="bg-rojo shadow-rojo text-rojo"/>

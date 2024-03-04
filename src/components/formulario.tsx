@@ -163,7 +163,7 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
     };
 
     return (
-        <Card elevation={9} sx={{ width: "400px" }}>
+        <Card elevation={9} sx={{ width: "400px", marginLeft:"20px"}}>
             <Box alignItems="center" justifyContent="center" sx={{ padding: "10px" }}>
                 <Typography variant="h5">Configuración</Typography>
                 <Stack direction="column" sx={{ padding: "10px" }}>
