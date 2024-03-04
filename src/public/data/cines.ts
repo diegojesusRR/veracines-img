@@ -4,7 +4,7 @@ export const cines = [
     {
         id: 1,
         nombre: "Cine Municipal Regio",
-        color: "rojo",
+        color: "azul",
         direccion: {
             calle: "Radio Nacional",
             numero: "s/n",
