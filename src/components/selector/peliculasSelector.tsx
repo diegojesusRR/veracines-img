@@ -1,7 +1,7 @@
 
 import {useEffect, useState} from "react";
 import {IPelicula} from "@/app/cartelera-mano/page";
-import {PeliculaSelector} from "@/components/forms/peliculaSelector";
+import {PeliculaSelector} from "@/components/selector/peliculaSelector";
 
 
 interface PeliculaSelectorProps {

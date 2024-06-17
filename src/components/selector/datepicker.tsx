@@ -43,29 +43,12 @@ export const CustomDatepicker = ({dia, setDia, className}:{dia: Date, setDia: (d
         }
     });
 
-    const [refresh, setRefresh] = useState(false);
-
-    useEffect(() => {
-        console.log(options.defaultDate.getDate(), dia.getDate())
-        setRefresh(true)
-    }, [dia]);
-
-    useEffect(() => {
-        if(!refresh) return;
-
-        setTimeout(() => {
-            setRefresh(false)
-
-        },1000)
-    }, [refresh]);
-
 
     const [show, setShow] = useState(false);
 
     return (
         <div className={className + ''}>
-            {
-                !refresh && <Datepicker value={dia} options={options} onChange={(date) => {if(date) setDia(date)}} show={show} setShow={(show) => setShow(show)} />
-            }
-        </div>)
+            <Datepicker value={dia} options={options} onChange={(date) => {if(date) setDia(date)}} show={show} setShow={(show) => setShow(show)} />
+        </div>
+    )
 }

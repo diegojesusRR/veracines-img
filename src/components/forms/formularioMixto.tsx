@@ -4,12 +4,12 @@ import {
 } from "@mui/material";
 import {useEffect, useState} from "react";
 import 'react-datepicker/dist/react-datepicker.css';
-import {CineSelector} from "@/components/forms/cineSelector";
+import {CineSelector} from "@/components/selector/cineSelector";
 import {IConfigCartelera, IPelicula} from "@/app/cartelera-mano/page";
-import {PeliculaSelector} from "@/components/forms/peliculaSelector";
-import {PeliculasSelector} from "@/components/forms/peliculasSelector";
+import {PeliculaSelector} from "@/components/selector/peliculaSelector";
+import {PeliculasSelector} from "@/components/selector/peliculasSelector";
 
-export const FormularioCartelera = ({config, setConfig}:{config: IConfigCartelera, setConfig: (config: any) => void}) => {
+export const FormularioMixto = ({config, setConfig}:{config: IConfigCartelera, setConfig: (config: any) => void}) => {
 
     const [cine, setCine] = useState(config.cine);
     const [peliculas, setPeliculas] = useState(config.peliculas??[undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined] as (IPelicula|undefined)[]);
