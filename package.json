@@ -16,15 +16,18 @@
     "@mui/material": "^5.15.11",
     "@types/react-datepicker": "^6.0.3",
     "download": "^8.0.0",
+    "flowbite-datepicker": "^1.2.7",
     "html-to-canvas": "^0.0.11",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
     "html2image": "^2.0.0",
     "micro-cors": "^0.1.1",
     "next": "14.1.0",
+    "nextjs-tui-date-picker": "^2.2.3",
     "react": "^18",
     "react-datepicker": "^6.2.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-datepicker-react": "^1.4.3"
   },
   "devDependencies": {
     "@types/node": "^20",
