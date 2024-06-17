@@ -41,6 +41,27 @@ h1, h2, h3, h4 {
   background-size: cover;
 }
 
+/* datepicker.css */
+.react-datepicker {
+  @apply bg-white border border-gray-300 rounded-md shadow-lg;
+}
+
+.react-datepicker__header {
+  @apply bg-blue-500 text-white;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+  @apply text-center;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--keyboard-selected {
+  @apply bg-blue-500 text-white;
+}
+
+.react-datepicker__day--today {
+  @apply font-bold;
+}
+
 
 
 

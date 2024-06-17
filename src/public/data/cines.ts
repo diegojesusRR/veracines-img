@@ -1,4 +1,18 @@
 
+export interface ICine {
+    id: number;
+    nombre: string;
+    color: string;
+    direccion: {
+        calle: string;
+        numero: string;
+        cp: string;
+        localidad: string;
+        provincia: string;
+        pais: string;
+    };
+
+}
 
 export const cines = [
     {
