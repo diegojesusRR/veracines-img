@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 import {useEffect, useState} from "react";
 import {IPelicula} from "@/app/cartelera-mano/page";
-import {CustomDatepicker} from "@/components/forms/datepicker";
+import {CustomDatepicker} from "@/components/selector/datepicker";
 
 
 
