@@ -1,9 +1,9 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {FormularioCartelera} from "@/components/forms/formularioCartelera";
-import {ICine} from "@/public/data/cines";
-import {CarteleraCaraB} from "@/components/cartelera/carteleraCaraB";
 import {cines} from "@/public/data/cines";
+import {IConfigCartelera} from "@/app/cartelera-mano/page";
+import {CarteleraMixta} from "@/components/cartelera/carteleraMixta";
 
 export interface IPelicula {
     titulo: string,
@@ -12,10 +12,9 @@ export interface IPelicula {
     diaInicio: Date,
     diaFin: Date,
 }
-export interface IConfigCartelera {
-    cine?: ICine,
-    peliculas?: (IPelicula|undefined)[],
-    portada?: IPelicula,
+export interface IConfigCarteleraMixta {
+    cartelera1: IConfigCartelera,
+    cartelera2: IConfigCartelera,
 }
 
 const initPelicula = (date: Date) => {
@@ -39,13 +38,32 @@ const initPeliculas = (numPeliculas: number) => {
 export default function Home() {
 
     const configInicial = {
-        cine: cines.find(cine => cine.id === 2),
-        peliculas: initPeliculas(8),
+        cartelera1: {
+            cine: cines.find(cine => cine.id === 2),
+            peliculas: initPeliculas(4),
+        },
+        cartelera2: {
+            cine: cines.find(cine => cine.id === 3),
+            peliculas: initPeliculas(4),
+        },
     }
 
     const [config, setConfig] = useState(configInicial);
 
+    const handleConfigChange = (newConfig: IConfigCartelera, index?: number) => {
+
+        console.log(newConfig, index);
+
+        if(index !== undefined)
+            setConfig({
+                ...config,
+                [`cartelera${index}`]: newConfig,
+            });
+
+    }
+
     useEffect(() => {
+        console.log(config)
     }, [config]);
 
     return (
@@ -56,10 +74,11 @@ export default function Home() {
                 <div className="bg-naranja shadow-naranja text-naranja"/>
             </div>
             <div className="flex flex-col">
-                <CarteleraCaraB config={config}/>
+                <CarteleraMixta config1={config.cartelera1} config2={config.cartelera2}/>
             </div>
 
-            <FormularioCartelera config={config} setConfig={setConfig}/>
+            <FormularioCartelera config={config.cartelera1} setConfig={handleConfigChange} index={1}/>
+            <FormularioCartelera config={config.cartelera2} setConfig={handleConfigChange} index={2}/>
         </div>
 
     );
