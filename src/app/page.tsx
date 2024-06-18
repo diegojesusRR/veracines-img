@@ -16,15 +16,13 @@ export default function Home() {
     }, [config]);
 
     return (
-        <div className="flex flex-row">
-            <div className="hidden">
-                <div className="bg-azul shadow-azul text-azul"/>
-                <div className="bg-rojo shadow-rojo text-rojo"/>
-                <div className="bg-naranja shadow-naranja text-naranja"/>
+        <div className="h-[800px] flex flex-col justify-center items-center">
+            <h1>Creador de portadas Veracines</h1>
+            <div className=" flex flex-row ">
+                <a className="p-4 border-2 bg-azul text-white text-xl m-4" href="/cartelera-mixta">Cartelera Mixta</a>
+                <a className="p-4 border-2 bg-azul text-white text-xl m-4" href="/cartelera-mano">Cartelera Cara B</a>
             </div>
-            <Portada config={config}/>
-            <Formulario config={config} setConfig={setConfig}/>
         </div>
 
-);
+    );
 }
