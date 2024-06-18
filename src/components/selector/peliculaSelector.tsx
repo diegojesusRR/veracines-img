@@ -35,7 +35,7 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}:{ pelicula: 
     }, [titulo]);
 
     useEffect(() => {
-        onChange({...pelicula??{}, imagenes, imagen: imagenes[0], titulo, diaInicio: diaInicio, diaFin: diaFin}, index);
+        onChange({...pelicula??{}, imagenes, imagen: imagen, titulo, diaInicio: diaInicio, diaFin: diaFin}, index);
     }, [diaInicio, diaFin, imagen, titulo]);
     const handleBuscarFotos = async (titulo: string) => {
 
@@ -86,18 +86,36 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}:{ pelicula: 
         setDiaFin(new Date(date.setHours(23,59,59,0)));
     }
 
+    const handleChangeIndexImagen = (index: number) => {
+        setIndiceActual(index);
+        setImagen(imagenes[index]);
+    }
+
     return (
         <Card className={'mt-4'}>
-            <TextField
-                label={label}
-                id="titulo-input"
-                value={titulo}
-                onChange={async (e) => {
-                    setTitulo(e.target.value);
-                }}
-                fullWidth
-                sx={{marginBottom: "10px"}}
-            />
+            <div className={"flex"}>
+                <TextField
+                    label={label}
+                    id="titulo-input"
+                    value={titulo}
+                    onChange={async (e) => {
+                        setTitulo(e.target.value);
+                    }}
+                    fullWidth
+                    sx={{marginBottom: "10px"}}
+                />
+                <div className="flex flex-row justify-center items-center space-x-4 py-3 px-2">
+                    <button className={"bg-azul text-white p-2"}
+                        onClick={() => handleChangeIndexImagen((indiceActual - 1 + imagenes.length) % imagenes.length)}>-
+                    </button>
+                    <div>{indiceActual + 1}/{imagenes.length}</div>
+                    <button className={"bg-azul text-white p-2"}
+                            onClick={() => handleChangeIndexImagen((indiceActual + 1) % imagenes.length)}>+
+                    </button>
+                </div>
+
+
+            </div>
             <div className={"flex"}>
                 <CustomDatepicker key={`date-inicio-${index}`} className={"w-1/2"} dia={diaInicio} setDia={handleFechaInicio}/>
                 <CustomDatepicker key={`date-fin-${index}`} className={"w-1/2"} dia={diaFin} setDia={handleFechaFin}/>

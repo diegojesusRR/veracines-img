@@ -5,7 +5,7 @@ import {FotoPelicula} from "@/components/fotoPelicula";
 import {IPelicula} from "@/app/cartelera-mano/page";
 import {ICine} from "@/public/data/cines";
 
-export const PeliculaCartelera = ({cine, pelicula} : {cine: ICine, pelicula: IPelicula}) => {
+export const PeliculaCartelera = ({cine, pelicula, className} : {cine: ICine, pelicula: IPelicula, className?: string}) => {
 
     const fechas = [];
 
@@ -35,10 +35,8 @@ export const PeliculaCartelera = ({cine, pelicula} : {cine: ICine, pelicula: IPe
         <React.Fragment>
         {
             pelicula.imagen ?
-                <div className="flex flex-col h-[380px] py-2 px-4">
-                    <h3 className={`w-full text-xs col-span-3 text-white bg-${cine.color} text-center font-bold p-2 rounded-lg mb-2 h-16 flex items-center justify-center`}>
-                        {pelicula.titulo}
-                    </h3>
+                <div className={`flex flex-col max-h-[380px] py-2 px-2 ${className??''}`}>
+                    <h3 className={`w-full text-${pelicula.titulo.length >= 30 ? '[10px]' : 'xs'} col-span-3 text-white bg-${cine.color} text-center font-bold p-2 rounded-lg h-16 flex items-center justify-center`}>                        {pelicula.titulo}</h3>
                     <FotoPelicula cine={cine} pelicula={pelicula}/>
                     <div
                         className={`mt-2 w-full text-xs col-span-3 text-white bg-${cine.color} text-center font-bold p-2 rounded-lg mb-2`}>

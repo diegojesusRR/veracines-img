@@ -4,6 +4,10 @@ export interface ICine {
     nombre: string;
     corto: string;
     color: string;
+    colorRef: {
+        normal: string;
+        dark: string;
+    };
     direccion: {
         calle: string;
         numero: string;
@@ -21,6 +25,10 @@ export const cines = [
         nombre: "Cine Municipal Regio",
         corto: "regio",
         color: "azul",
+        colorRef: {
+            normal: "#2d438f",
+            dark: "#0e226a",
+        },
         direccion: {
             calle: "Radio Nacional",
             numero: "s/n",
@@ -35,6 +43,10 @@ export const cines = [
         nombre: "Cine de Verano Terraza de Vera",
         corto: "vera",
         color: "azul",
+        colorRef: {
+            normal: "#2d438f",
+            dark: "#0e226a",
+        },
         direccion: {
             calle: "Antonio de Torres",
             numero: "2",
@@ -49,6 +61,10 @@ export const cines = [
         nombre: "Cine Tenis de Garrucha",
         corto: "garrucha",
         color: "naranja",
+        colorRef: {
+            normal: "#f7770e",
+            dark: "#bf5f00",
+        },
         direccion: {
             calle: "Tenis",
             numero: "s/n",
