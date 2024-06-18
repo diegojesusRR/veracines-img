@@ -1,8 +1,6 @@
 "use client"
 import React, {useEffect, useState} from "react";
-import Image from "next/image";
-import {Portada} from "@/components/portada";
-import {Formulario} from "@/components/forms/formulario";
+
 
 export default function Home() {
 
