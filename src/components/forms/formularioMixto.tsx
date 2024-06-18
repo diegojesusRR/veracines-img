@@ -1,5 +1,5 @@
 import {
-    Box,
+    Box, Button,
     Card,
 } from "@mui/material";
 import {useEffect, useState} from "react";
@@ -8,6 +8,7 @@ import {CineSelector} from "@/components/selector/cineSelector";
 import {IConfigCartelera, IPelicula} from "@/app/cartelera-mano/page";
 import {PeliculaSelector} from "@/components/selector/peliculaSelector";
 import {PeliculasSelector} from "@/components/selector/peliculasSelector";
+import * as htmlToImage from "html-to-image";
 
 export const FormularioMixto = ({config, setConfig}:{config: IConfigCartelera, setConfig: (config: any) => void}) => {
 
