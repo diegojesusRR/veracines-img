@@ -271,7 +271,9 @@ export const Formulario = ({config, setConfig}:{config: any, setConfig: any}) =>
                     >
                         Agregar Nuevo Dia
                     </Button>
-                    <Button onClick={handleHacerFoto}>Obtener Foto</Button>
+                    <button className={"text-white bg-azul p-2 mt-2 w-full font-bold border-2"}
+                            onClick={handleHacerFoto}>Hacer foto
+                    </button>
                 </Stack>
             </Box>
         </Card>
