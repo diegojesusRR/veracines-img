@@ -1,8 +1,5 @@
 
 import React from "react";
-import {Cabecera} from "@/components/cabecera";
-import {Pelicula} from "@/components/pelicula";
-import {Footer} from "@/components/footer";
 import {IConfigCartelera} from "@/app/cartelera-mano/page";
 
 export const CarteleraCaraA = ({config} : {config: IConfigCartelera}) => {
