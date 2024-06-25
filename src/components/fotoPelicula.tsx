@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {IPelicula} from "@/app/cartelera-mano/page";
+import {IPelicula} from "@/app/cartelera-cara-b/page";
 import { ICine } from "@/public/data/cines";
 
 export const FotoPelicula = ({cine, pelicula} : {cine: ICine, pelicula: IPelicula}) => {
