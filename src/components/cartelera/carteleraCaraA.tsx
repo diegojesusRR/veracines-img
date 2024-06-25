@@ -1,14 +1,23 @@
 
 import React from "react";
-import {IConfigCartelera} from "@/app/cartelera-mano/page";
+import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
+import {PortadaCaraA} from "@/components/cartelera/caraA/portada";
+import {ReversoCaraA} from "@/components/cartelera/caraA/reverso";
+import {IConfigCaraA} from "@/app/cartelera-cara-a/page";
+import {FotoButton} from "@/components/fotoButton";
 
-export const CarteleraCaraA = ({config} : {config: IConfigCartelera}) => {
+export const CarteleraCaraA = ({config} : {config: IConfigCaraA}) => {
     return (
-        <div className="portada w-[800px] h-[800px] pl-4 pr-6 pt-4 relative flex flex-col">
-            {config.cine &&
-                <React.Fragment>
-                </React.Fragment>
-            }
-        </div>
+        <>
+            <FotoButton label={"caraA"}/>
+            <div className="portada w-[800px] h-[800px] relative flex flex-row">
+                {config.cine &&
+                    <>
+                        <ReversoCaraA cine={config.cine} proximamente={config.proximamente!} />
+                        <PortadaCaraA cine={config.cine} portada={config.portada!} />
+                    </>
+                }
+            </div>
+        </>
     )
 }

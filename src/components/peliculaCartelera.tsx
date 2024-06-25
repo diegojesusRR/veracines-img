@@ -2,7 +2,7 @@
 
 import React from "react";
 import {FotoPelicula} from "@/components/fotoPelicula";
-import {IPelicula} from "@/app/cartelera-mano/page";
+import {IPelicula} from "@/app/cartelera-cara-b/page";
 import {ICine} from "@/public/data/cines";
 
 export const PeliculaCartelera = ({cine, pelicula, className} : {cine: ICine, pelicula: IPelicula, className?: string}) => {

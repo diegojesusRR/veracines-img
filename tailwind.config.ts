@@ -19,6 +19,9 @@ const colors = {
     azul: azul.normal,
     rojo: rojo.normal,
     naranja: naranja.normal,
+    "dark-azul": azul.dark,
+    "dark-rojo": rojo.dark,
+    "dark-naranja": naranja.dark,
     blanco: "#ffffff",
 }
 
@@ -42,7 +45,12 @@ const config: Config = {
             boxShadowColor: darkColors,
             backgroundImage: {
                 fondo: "url('/src/public/images/fondo.png')"
-            }
+            },
+            borderColor: {
+                azul: azul.dark,
+                rojo: rojo.dark,
+                naranja: naranja.dark,
+            },
         },
     },
     plugins: []

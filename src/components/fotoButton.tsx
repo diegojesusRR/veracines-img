@@ -1,7 +1,7 @@
 import * as htmlToImage from "html-to-image";
 
 
-export const FotoButton = () => {
+export const FotoButton = ({label}: {label: string}) => {
 
     const handleHacerFoto = () => {
         const portada = document.querySelector('.portada')
@@ -9,7 +9,7 @@ export const FotoButton = () => {
             htmlToImage.toJpeg(portada as HTMLElement)
                 .then(function (dataUrl) {
                     let link = document.createElement('a');
-                    link.download = 'publi-veracines.jpeg';
+                    link.download = `${label}.jpeg`;
                     link.href = dataUrl;
                     link.click();
                 })
