@@ -5,7 +5,7 @@ import {
 import {useEffect, useState} from "react";
 import 'react-datepicker/dist/react-datepicker.css';
 import {CineSelector} from "@/components/selector/cineSelector";
-import {IConfigCartelera, IPelicula} from "@/app/cartelera-mano/page";
+import {IConfigCartelera, IPelicula} from "@/app/cartelera-cara-b/page";
 import {PeliculaSelector} from "@/components/selector/peliculaSelector";
 import {PeliculasSelector} from "@/components/selector/peliculasSelector";
 import * as htmlToImage from "html-to-image";
@@ -14,18 +14,14 @@ export const FormularioMixto = ({config, setConfig}:{config: IConfigCartelera, s
 
     const [cine, setCine] = useState(config.cine);
     const [peliculas, setPeliculas] = useState(config.peliculas??[undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined] as (IPelicula|undefined)[]);
-    const [portada, setPortada] = useState(config.portada??{titulo:'', diaInicio:new Date(), diaFin:new Date()});
-    const [proximasPeliculas, setProximasPeliculas] = useState([]);
 
 
     useEffect(() => {
         setConfig({
             cine,
             peliculas,
-            portada,
-            proximasPeliculas,
         });
-    }, [cine, peliculas, portada, proximasPeliculas]);
+    }, [cine, peliculas]);
 
     const handleChangePelicula = (pelicula: IPelicula, index: number) => {
         const nuevasPeliculas = peliculas.map((actual, i) => {

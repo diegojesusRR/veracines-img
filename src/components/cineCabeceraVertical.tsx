@@ -1,6 +1,6 @@
 
 import React from "react";
-import {IConfigCartelera} from "@/app/cartelera-mano/page";
+import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
 import Image from "next/image";
 import veraCinta from "@/public/images/vera-cinta.png";
 import garruchaCinta from "@/public/images/garrucha-cinta.png";

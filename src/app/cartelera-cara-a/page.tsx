@@ -4,6 +4,8 @@ import {FormularioCartelera} from "@/components/forms/formularioCartelera";
 import {ICine} from "@/public/data/cines";
 import {CarteleraCaraB} from "@/components/cartelera/carteleraCaraB";
 import {cines} from "@/public/data/cines";
+import {CarteleraCaraA} from "@/components/cartelera/carteleraCaraA";
+import {FormularioCaraA} from "@/components/forms/formularioCaraA";
 
 export interface IPelicula {
     titulo: string,
@@ -12,9 +14,9 @@ export interface IPelicula {
     diaInicio: Date,
     diaFin: Date,
 }
-export interface IConfigCartelera {
+export interface IConfigCaraA {
     cine?: ICine,
-    peliculas?: (IPelicula|undefined)[],
+    proximamente?: (IPelicula|undefined)[],
     portada?: IPelicula,
 }
 
@@ -40,7 +42,8 @@ export default function Home() {
 
     const configInicial = {
         cine: cines.find(cine => cine.id === 2),
-        peliculas: initPeliculas(8),
+        proximamente: initPeliculas(2),
+        portada: initPelicula(new Date()),
     }
 
     const [config, setConfig] = useState(configInicial);
@@ -56,10 +59,10 @@ export default function Home() {
                 <div className="bg-naranja shadow-naranja text-naranja"/>
             </div>
             <div className="flex flex-col">
-                <CarteleraCaraB config={config}/>
+                <CarteleraCaraA config={config}/>
             </div>
 
-            <FormularioCartelera config={config} setConfig={setConfig}/>
+            <FormularioCaraA config={config} setConfig={setConfig}/>
         </div>
 
     );

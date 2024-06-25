@@ -1,6 +1,6 @@
 
 import React from "react";
-import {IConfigCartelera} from "@/app/cartelera-mano/page";
+import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
 import {PeliculaCartelera} from "@/components/peliculaCartelera";
 import {CineCabeceraVertical} from "@/components/cineCabeceraVertical";
 import {FotoButton} from "@/components/fotoButton";
@@ -9,7 +9,7 @@ export const CarteleraMixta = ({config1, config2} : {config1: IConfigCartelera, 
 
     return (
         <>
-            <FotoButton/>
+            <FotoButton label={"carteleraMixta"}/>
             <div className="portada">
                 <div className="w-[800px] h-[400px] relative flex flex-row">
                     {config1.cine && <CineCabeceraVertical config={config1} />}

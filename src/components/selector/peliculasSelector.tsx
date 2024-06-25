@@ -1,6 +1,6 @@
 
 import {useEffect, useState} from "react";
-import {IPelicula} from "@/app/cartelera-mano/page";
+import {IPelicula} from "@/app/cartelera-cara-b/page";
 import {PeliculaSelector} from "@/components/selector/peliculaSelector";
 
 

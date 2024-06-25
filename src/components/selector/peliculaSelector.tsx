@@ -4,7 +4,7 @@ import {
     TextField,
 } from "@mui/material";
 import {useEffect, useState} from "react";
-import {IPelicula} from "@/app/cartelera-mano/page";
+import {IPelicula} from "@/app/cartelera-cara-b/page";
 import {CustomDatepicker} from "@/components/selector/datepicker";
 
 
