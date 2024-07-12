@@ -20,6 +20,7 @@ export default function Home() {
                 <a className="p-4 border-2 bg-azul text-white text-xl m-4" href="/cartelera-cara-a">Cartelera Cara A</a>
                 <a className="p-4 border-2 bg-azul text-white text-xl m-4" href="/cartelera-cara-b">Cartelera Cara B</a>
                 <a className="p-4 border-2 bg-azul text-white text-xl m-4" href="/cartelera-mixta">Cartelera Mixta</a>
+                <a className="p-4 border-2 bg-azul text-white text-xl m-4" href="/cartelera-hoy">Cartelera Hoy</a>
 
             </div>
         </div>
