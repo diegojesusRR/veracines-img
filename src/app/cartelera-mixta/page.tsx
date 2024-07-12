@@ -9,7 +9,7 @@ export interface IPelicula {
     titulo: string,
     imagen?: string,
     imagenes?: string[],
-    tamanoTitulo: number,
+    tamanoTitulo?: number,
     diaInicio: Date,
     diaFin: Date,
 }
