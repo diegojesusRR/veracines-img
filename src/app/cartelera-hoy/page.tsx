@@ -9,7 +9,7 @@ import {CarteleraHoy} from "@/components/cartelera/caraA/carteleraHoy";
 
 export interface IPelicula {
     titulo: string,
-    tamanoTitulo: number,
+    tamanoTitulo?: number,
     imagen?: string,
     imagenes?: string[],
     diaInicio: Date,
