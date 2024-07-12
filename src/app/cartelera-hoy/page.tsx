@@ -1,30 +1,36 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {FormularioCartelera} from "@/components/forms/formularioCartelera";
+import {ICine} from "@/public/data/cines";
+import {CarteleraCaraB} from "@/components/cartelera/carteleraCaraB";
 import {cines} from "@/public/data/cines";
-import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
-import {CarteleraMixta} from "@/components/cartelera/carteleraMixta";
+import {CarteleraCaraA} from "@/components/cartelera/carteleraCaraA";
+import {CarteleraHoy} from "@/components/cartelera/caraA/carteleraHoy";
 
 export interface IPelicula {
     titulo: string,
+    tamanoTitulo: number,
     imagen?: string,
     imagenes?: string[],
-    tamanoTitulo: number,
     diaInicio: Date,
     diaFin: Date,
+}
+export interface IConfigCartelera {
+    cine?: ICine,
+    peliculas?: (IPelicula|undefined)[],
 }
 
 const initPelicula = (date: Date) => {
     const pelicula: IPelicula = {
         titulo: '',
-        diaInicio: date,
         tamanoTitulo: 12,
+        diaInicio: date,
         diaFin: date,
     }
 
     return pelicula;
 }
-const initPeliculas = (numPeliculas: number): IPelicula[] => {
+const initPeliculas = (numPeliculas: number) => {
 
     const peliculas = [];
     for (let i = 0; i < numPeliculas; i++) {
@@ -35,25 +41,20 @@ const initPeliculas = (numPeliculas: number): IPelicula[] => {
 }
 export default function Home() {
 
-    const configInicial1: IConfigCartelera = {
+    const configInicial1 = {
         cine: cines.find(cine => cine.id === 2),
-        peliculas: initPeliculas(4),
+        peliculas: initPeliculas(1),
+        portada: initPelicula(new Date()),
     }
 
-    const configInicial2: IConfigCartelera = {
+    const configInicial2 = {
         cine: cines.find(cine => cine.id === 3),
-        peliculas: initPeliculas(4),
+        peliculas: initPeliculas(1),
+        portada: initPelicula(new Date()),
     }
 
     const [config1, setConfig1] = useState(configInicial1);
     const [config2, setConfig2] = useState(configInicial2);
-
-    const handleConfigChange = (newConfig: IConfigCartelera, index?: number) => {
-        if(index === 1)
-            setConfig1(newConfig);
-        else if(index === 2)
-            setConfig2(newConfig);
-    }
 
     useEffect(() => {
     }, [config1, config2]);
@@ -66,11 +67,11 @@ export default function Home() {
                 <div className="bg-naranja shadow-naranja text-naranja"/>
             </div>
             <div className="flex flex-col">
-                <CarteleraMixta config1={config1} config2={config2}/>
+                <CarteleraHoy config1={config1} config2={config2}/>
             </div>
 
-            <FormularioCartelera config={config1} setConfig={handleConfigChange} index={1}/>
-            <FormularioCartelera config={config2} setConfig={handleConfigChange} index={2}/>
+            <FormularioCartelera config={config1} setConfig={setConfig1}/>
+            <FormularioCartelera config={config2} setConfig={setConfig2}/>
         </div>
 
     );

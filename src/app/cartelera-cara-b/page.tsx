@@ -8,6 +8,7 @@ import {CarteleraCaraA} from "@/components/cartelera/carteleraCaraA";
 
 export interface IPelicula {
     titulo: string,
+    tamanoTitulo: number,
     imagen?: string,
     imagenes?: string[],
     diaInicio: Date,
@@ -15,12 +16,13 @@ export interface IPelicula {
 }
 export interface IConfigCartelera {
     cine?: ICine,
-    peliculas?: (IPelicula|undefined)[],
+    peliculas?: IPelicula[],
 }
 
 const initPelicula = (date: Date) => {
     const pelicula: IPelicula = {
         titulo: '',
+        tamanoTitulo: 12,
         diaInicio: date,
         diaFin: date,
     }

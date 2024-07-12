@@ -6,6 +6,7 @@ import {
 import {useEffect, useState} from "react";
 import {IPelicula} from "@/app/cartelera-cara-b/page";
 import {CustomDatepicker} from "@/components/selector/datepicker";
+import {ta} from "date-fns/locale";
 
 
 
@@ -20,6 +21,7 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}:{ pelicula: 
 
     const [imagen, setImagen] = useState(pelicula?.imagen??'');
     const [titulo, setTitulo] = useState(pelicula?.titulo??'');
+    const [tamanoTitulo, setTamanoTitulo] = useState(pelicula?.tamanoTitulo??12);
     const [diaInicio, setDiaInicio] = useState(pelicula?.diaInicio??new Date());
     const [diaFin, setDiaFin] = useState(pelicula?.diaFin??new Date());
 
@@ -35,8 +37,8 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}:{ pelicula: 
     }, [titulo]);
 
     useEffect(() => {
-        onChange({...pelicula??{}, imagenes, imagen: imagen, titulo, diaInicio: diaInicio, diaFin: diaFin}, index);
-    }, [diaInicio, diaFin, imagen, titulo]);
+        onChange({...pelicula??{}, imagenes, imagen: imagen, titulo, tamanoTitulo, diaInicio: diaInicio, diaFin: diaFin}, index);
+    }, [diaInicio, diaFin, imagen, titulo, tamanoTitulo]);
     const handleBuscarFotos = async (titulo: string) => {
 
         setIsLoadingFoto(true);
@@ -106,7 +108,7 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}:{ pelicula: 
                 />
                 <div className="flex flex-row justify-center items-center space-x-4 py-3 px-2">
                     <button className={"bg-azul text-white p-2"}
-                        onClick={() => handleChangeIndexImagen((indiceActual - 1 + imagenes.length) % imagenes.length)}>-
+                            onClick={() => handleChangeIndexImagen((indiceActual - 1 + imagenes.length) % imagenes.length)}>-
                     </button>
                     <div>{indiceActual + 1}/{imagenes.length}</div>
                     <button className={"bg-azul text-white p-2"}
@@ -117,7 +119,8 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}:{ pelicula: 
 
             </div>
             <div className={"flex"}>
-                <CustomDatepicker key={`date-inicio-${index}`} className={"w-1/2"} dia={diaInicio} setDia={handleFechaInicio}/>
+                <CustomDatepicker key={`date-inicio-${index}`} className={"w-1/2"} dia={diaInicio}
+                                  setDia={handleFechaInicio}/>
                 <CustomDatepicker key={`date-fin-${index}`} className={"w-1/2"} dia={diaFin} setDia={handleFechaFin}/>
             </div>
 
