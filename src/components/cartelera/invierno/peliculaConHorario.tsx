@@ -85,7 +85,7 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
 
 
     return (
-        <div style={{width: '100%', height: 'calc(100% - 236px)', paddingLeft:'20px', paddingRight:'20px'}} className={`flex flex-col justify-center`}>
+        <div style={{width: '100%', height: 'calc(100% - 236px)', paddingTop: '20px', paddingLeft:'20px', paddingRight:'20px'}} className={`flex flex-col justify-center`}>
             {
                 proyeccion.pelicula.imagen ?
                     <div className={`grid grid-cols-2 max-h-[640px] py-2 px-2`}>
