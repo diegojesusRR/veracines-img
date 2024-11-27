@@ -1,13 +1,10 @@
-
 import React from "react";
 import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
 import {PeliculaCartelera} from "@/components/peliculaCartelera";
 import {FotoButton} from "@/components/fotoButton";
-import {IConfigCaraA} from "@/app/cartelera-cara-a/page";
-import {CineCabeceraVertical} from "@/components/cineCabeceraVertical";
 import {CineCabeceraHorizontal} from "@/components/cartelera/CineCabeceraHorizontal";
 
-export const CarteleraHoy = ({config1, config2} : {config1: IConfigCartelera, config2: IConfigCartelera}) => {
+export const CarteleraHoy = ({config1, config2}: { config1: IConfigCartelera, config2: IConfigCartelera }) => {
     return (
         <>
             <FotoButton label={"caraB"}/>

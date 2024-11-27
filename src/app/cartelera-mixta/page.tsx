@@ -1,9 +1,9 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {FormularioCartelera} from "@/components/forms/formularioCartelera";
-import {cines} from "@/public/data/cines";
+import {cines} from "@/data/cines";
 import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
-import {CarteleraMixta} from "@/components/cartelera/carteleraMixta";
+import {CarteleraMixta} from "../../components/cartelera/verano/rrss/carteleraMixta";
 
 export interface IPelicula {
     titulo: string,

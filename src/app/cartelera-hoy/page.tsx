@@ -1,11 +1,11 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {FormularioCartelera} from "@/components/forms/formularioCartelera";
-import {ICine} from "@/public/data/cines";
-import {CarteleraCaraB} from "@/components/cartelera/carteleraCaraB";
-import {cines} from "@/public/data/cines";
-import {CarteleraCaraA} from "@/components/cartelera/carteleraCaraA";
-import {CarteleraHoy} from "@/components/cartelera/caraA/carteleraHoy";
+import {ICine} from "@/data/cines";
+import {CarteleraCaraB} from "../../components/cartelera/verano/panfleto/carteleraCaraB";
+import {cines} from "@/data/cines";
+import {CarteleraCaraA} from "../../components/cartelera/verano/panfleto/carteleraCaraA";
+import {CarteleraHoy} from "@/components/cartelera/verano/panfleto/carteleraHoy";
 
 export interface IPelicula {
     titulo: string,

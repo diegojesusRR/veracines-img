@@ -1,8 +1,8 @@
 
 import React from "react";
 import {IConfigCartelera} from "@/app/cartelera-cara-b/page";
-import {PortadaCaraA} from "@/components/cartelera/caraA/portada";
-import {ReversoCaraA} from "@/components/cartelera/caraA/reverso";
+import {PortadaCaraA} from "@/components/cartelera/verano/panfleto/caraA/portada";
+import {ReversoCaraA} from "@/components/cartelera/verano/panfleto/caraA/reverso";
 import {IConfigCaraA} from "@/app/cartelera-cara-a/page";
 import {FotoButton} from "@/components/fotoButton";
 

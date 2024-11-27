@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import {IPelicula} from "@/app/cartelera-cara-b/page";
-import { ICine } from "@/public/data/cines";
 
-export const FotoPelicula = ({cine, pelicula} : {cine: ICine, pelicula: IPelicula}) => {
+import { ICine } from "@/data/cines";
+import {IPelicula as IPeliculaNew} from "@/interfaces/formularios";
+import {IPelicula} from "@/app/cartelera-cara-b/page";
+
+export const FotoPelicula = ({cine, pelicula} : {cine: ICine, pelicula: IPelicula|IPeliculaNew}) => {
     return (
         <div className="relative row-span-3 w-full h-full flex items-center justify-center">
             <div className={`bg-${cine.color} p-1 flex items-center justify-center rounded-lg`}

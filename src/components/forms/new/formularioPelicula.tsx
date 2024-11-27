@@ -1,14 +1,15 @@
 import {Card, TextField,} from "@mui/material";
+import {IPelicula} from "@/interfaces/formularios";
 import {useEffect, useState} from "react";
-import {IPelicula} from "@/app/cartelera-cara-b/page";
-import {CustomDatepicker} from "@/components/selector/datepicker";
 
-
-export const PeliculaSelector = ({pelicula, onChange, index, label}: {
+export const FormularioPelicula = ({
+                                       pelicula,
+                                       onChange,
+                                       label
+                                   }: {
     pelicula: IPelicula | undefined,
-    onChange: (pelicula: IPelicula, index: number) => void,
+    onChange: (pelicula: IPelicula) => void,
     label: string,
-    index: number
 }) => {
 
 
@@ -21,13 +22,6 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}: {
     const [imagen, setImagen] = useState(pelicula?.imagen ?? '');
     const [titulo, setTitulo] = useState(pelicula?.titulo ?? '');
     const [tamanoTitulo, setTamanoTitulo] = useState(pelicula?.tamanoTitulo ?? 12);
-    const [diaInicio, setDiaInicio] = useState(pelicula?.diaInicio ?? new Date());
-    const [diaFin, setDiaFin] = useState(pelicula?.diaFin ?? new Date());
-
-    useEffect(() => {
-        setDiaInicio(pelicula!.diaInicio);
-        setDiaFin(pelicula!.diaFin);
-    }, [pelicula]);
 
     useEffect(() => {
         if (titulo.length >= 2) {
@@ -36,16 +30,8 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}: {
     }, [titulo]);
 
     useEffect(() => {
-        onChange({
-            ...pelicula ?? {},
-            imagenes,
-            imagen: imagen,
-            titulo,
-            tamanoTitulo,
-            diaInicio: diaInicio,
-            diaFin: diaFin
-        }, index);
-    }, [diaInicio, diaFin, imagen, titulo, tamanoTitulo]);
+        onChange({...pelicula ?? {}, imagenes, imagen: imagen, titulo, tamanoTitulo});
+    }, [imagen, titulo, tamanoTitulo]);
     const handleBuscarFotos = async (titulo: string) => {
 
         setIsLoadingFoto(true);
@@ -86,15 +72,6 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}: {
         }, tiempoEspera));
     };
 
-    const handleFechaInicio = (date: Date) => {
-        setDiaInicio(new Date(date.setHours(0, 0, 0, 0)));
-        setDiaFin(new Date(date.setHours(23, 59, 59, 0)));
-    }
-
-    const handleFechaFin = (date: Date) => {
-        setDiaFin(new Date(date.setHours(23, 59, 59, 0)));
-    }
-
     const handleChangeIndexImagen = (index: number) => {
         setIndiceActual(index);
         setImagen(imagenes[index]);
@@ -107,7 +84,7 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}: {
                     label={label}
                     id="titulo-input"
                     value={titulo}
-                    onChange={async (e) => {
+                    onChange={(e) => {
                         setTitulo(e.target.value);
                     }}
                     fullWidth
@@ -121,17 +98,9 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}: {
                     <button className={"bg-azul text-white p-2"}
                             onClick={() => handleChangeIndexImagen((indiceActual + 1) % imagenes.length)}>+
                     </button>
+
                 </div>
-
-
             </div>
-            <div className={"flex"}>
-                <CustomDatepicker key={`date-inicio-${index}`} className={"w-1/2"} dia={diaInicio}
-                                  setDia={handleFechaInicio}/>
-                <CustomDatepicker key={`date-fin-${index}`} className={"w-1/2"} dia={diaFin} setDia={handleFechaFin}/>
-            </div>
-
-
         </Card>
     )
 }

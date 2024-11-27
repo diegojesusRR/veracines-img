@@ -1,7 +1,7 @@
 
 import React from "react";
 import {IConfigCartelera, IPelicula} from "@/app/cartelera-cara-b/page";
-import {ICine} from "@/public/data/cines";
+import {ICine} from "@/data/cines";
 
 
 export const PortadaCaraA = ({cine, portada} : {cine: ICine, portada: IPelicula}) => {
