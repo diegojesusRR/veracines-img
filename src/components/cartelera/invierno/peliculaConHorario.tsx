@@ -4,7 +4,12 @@ import React from "react";
 import {FotoPelicula} from "@/components/fotoPelicula";
 import {ICine} from "@/data/cines";
 import {ICarteleraPeliculaHorario} from "@/interfaces/formularios";
+import {Monoton as Font} from 'next/font/google';
 
+const font = Font({
+    subsets: ["latin"],
+    weight: ["400"], // Regular weight
+});
 
 export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion: ICarteleraPeliculaHorario}) => {
 
@@ -23,7 +28,7 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
                         alignItems: 'center',
                         marginLeft: '8px',
                     }}>
-                    (<span>🇬🇧</span>)
+                    (<span>VOSE</span>)
                 </span>
                 )
                 : '';
@@ -62,14 +67,13 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
                 key={dia.dia.getTime()}
                 style={{
                     display: 'block',
-                    marginBottom: '16px',
-                    padding: '12px',
-                    fontSize: '1.2em',
+                    padding: '0 12px 0 12px',
+                    fontSize: '1em',
                     lineHeight: '2em',
                     color: '#222'
                 }}
             >
-                <div><strong style={{ color: '#2d438f', fontSize: '1.6em' }}>
+                <div><strong style={{ color: '#2d438f', fontSize: '1.6em'}}>
                     {diaSemanaTexto} {dia.dia.getDate()} {mesTexto}
                 </strong></div>
                 <div style={{textAlign: "center"}}>{horariosText}</div>
@@ -81,7 +85,7 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
 
 
     return (
-        <div style={{width: '100%', height: 'calc(100% - 144px)', paddingLeft:'20px', paddingRight:'20px'}} className={`flex flex-col justify-center`}>
+        <div style={{width: '100%', height: 'calc(100% - 236px)', paddingLeft:'20px', paddingRight:'20px'}} className={`flex flex-col justify-center`}>
             {
                 proyeccion.pelicula.imagen ?
                     <div className={`grid grid-cols-2 max-h-[640px] py-2 px-2`}>
@@ -89,22 +93,13 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
                             <FotoPelicula cine={cine} pelicula={proyeccion.pelicula}/>
 
                         </div>
-                        <div className={`col-span-1 flex flex-col space-around justify-top`}>
-                            <h3 className={`col-span-3 text-primary text-center font-bold p-2 rounded-lg h-16 flex items-center justify-center underline`}
-                                style={{
-                                    display: 'block',
-                                    marginBottom: '32px',
-                                    padding: '12px',
-                                    lineHeight: '2em',
-                                    color: '#2d438f',
-                                    fontSize: '1.6em',
-                                    fontWeight: 'bold'
-                                }}>
-                                {proyeccion.pelicula.titulo}
-                            </h3>
+                        <div className={`col-span-1 flex flex-col space-around justify-top uppercase font-bold text-center underline`}>
+                                <div className={`mb-8`}><strong style={{color: '#2d438f', fontSize: '1.4em'}}>
+                                    {proyeccion.pelicula.titulo}
+                                </strong></div>
                             {horarios.map((horario, index) => (
                                 <div key={`horario-${index}`}
-                                     className={`col-span-3 text-primary text-left font-bold p-2 rounded-lg h-16 flex items-center justify-center mb-6`}
+                                     className={`text-primary text-center font-bold flex items-center justify-center mb-4`}
                                      style={{fontSize: '11px'}}>
                                     {horario}
                                 </div>

@@ -5,6 +5,7 @@ import {FotoButton} from "@/components/fotoButton";
 import {ICarteleraPeliculas} from "@/interfaces/formularios";
 import {CabeceraHorizontal} from "@/components/cartelera/comun/cabeceraHorizontal";
 import {PeliculaConHorario} from "@/components/cartelera/invierno/peliculaConHorario";
+import {Footer} from "@/components/footer";
 
 export const Cartelera1Pelicula = ({config} : {config: ICarteleraPeliculas}) => {
 
@@ -17,6 +18,7 @@ export const Cartelera1Pelicula = ({config} : {config: ICarteleraPeliculas}) => 
                     {config.proyecciones && config.proyecciones.map((proyeccion, index) => proyeccion &&
                         <PeliculaConHorario key={`cine-${index}`} cine={config.cine} proyeccion={proyeccion} />)
                     }
+                    {config.cine && <Footer cine={config.cine}/>}
                 </div>
             </div>
         </>
