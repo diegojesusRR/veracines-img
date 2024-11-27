@@ -1,10 +1,10 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {FormularioCartelera} from "@/components/forms/formularioCartelera";
-import {ICine} from "@/public/data/cines";
-import {CarteleraCaraB} from "@/components/cartelera/carteleraCaraB";
-import {cines} from "@/public/data/cines";
-import {CarteleraCaraA} from "@/components/cartelera/carteleraCaraA";
+import {ICine} from "@/data/cines";
+import {CarteleraCaraB} from "../../components/cartelera/verano/panfleto/carteleraCaraB";
+import {cines} from "@/data/cines";
+import {CarteleraCaraA} from "../../components/cartelera/verano/panfleto/carteleraCaraA";
 
 export interface IPelicula {
     titulo: string,
@@ -14,6 +14,7 @@ export interface IPelicula {
     diaInicio: Date,
     diaFin: Date,
 }
+
 export interface IConfigCartelera {
     cine?: ICine,
     peliculas?: IPelicula[],
