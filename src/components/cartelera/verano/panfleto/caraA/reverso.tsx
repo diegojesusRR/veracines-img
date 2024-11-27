@@ -1,7 +1,7 @@
 
 import React from "react";
 import {IPelicula} from "@/app/cartelera-cara-b/page";
-import {ICine} from "@/public/data/cines";
+import {ICine} from "@/data/cines";
 
 export const ReversoCaraA = ({cine, proximamente} : {cine: ICine, proximamente: (IPelicula|undefined)[]}) => {
     return (

@@ -3,7 +3,7 @@
 import React, {useEffect} from "react";
 import {FotoPelicula} from "@/components/fotoPelicula";
 import {IPelicula} from "@/app/cartelera-cara-b/page";
-import {ICine} from "@/public/data/cines";
+import {ICine} from "@/data/cines";
 
 export const PeliculaCartelera = ({cine, pelicula, className, maxHeight, bigTitles} : {cine: ICine, pelicula: IPelicula, className?: string, maxHeight?: number, bigTitles?: boolean}) => {
 

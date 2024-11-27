@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import * as htmlToImage from 'html-to-image';
 import {useEffect, useState} from "react";
-import {cines, ICine} from "@/public/data/cines";
+import {cines, ICine} from "@/data/cines";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
