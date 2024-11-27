@@ -1,19 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import logo from "@/public/images/logo-cine.png";
-import { ICine } from "@/data/cines";
-import { MdLocationOn } from "react-icons/md"; // Importa el icono de ubicación
-import { Monoton as Font } from 'next/font/google';
+import {ICine} from "@/data/cines";
+import {Monoton as Font} from 'next/font/google';
 
 const font = Font({
     subsets: ["latin"],
     weight: ["400"], // Regular weight
 });
 
-export const CabeceraHorizontal = ({ cine }: { cine: ICine }) => {
+export const CabeceraHorizontal = ({cine}: { cine: ICine }) => {
     return (
         <div
-            className={`relative w-full h-36 bg-${cine?.color} flex items-center px-8`}
+            className={`relative w-full h-36 bg-${cine?.color} flex items-center px-8 justify-between`}
         >
             {/* Fondo con sombreado dinámico */}
             <div
@@ -26,7 +25,7 @@ export const CabeceraHorizontal = ({ cine }: { cine: ICine }) => {
             />
 
             {/* Contenedor principal */}
-            <div className="flex items-center" style={{ zIndex: 10, marginRight: '30px'}}>
+            <div className="flex items-center" style={{zIndex: 10, marginRight: '30px'}}>
                 {/* Elemento 1: Logo */}
                 <div style={{position: "relative"}}>
 
@@ -37,7 +36,7 @@ export const CabeceraHorizontal = ({ cine }: { cine: ICine }) => {
                         <Image src={logo} alt="Logo del cine" width={80} height={80} className="object-contain"/>
                     </div>
                     <div
-                        className="bg-[#0e226a] shadow-lg shadow-gray-500/50 flex items-center justify-center absolute w-[80px] h-[80px] top-[5px] left-[5px]"
+                        className="bg-[#0e226a] shadow-lg shadow-gray-500/50 flex items-center justify-center absolute w-[80px] h-[80px] top-[8px] left-[8px]"
                         style={{width: 110, height: 110, zIndex: -1}}
                     />
                 </div>
@@ -45,21 +44,33 @@ export const CabeceraHorizontal = ({ cine }: { cine: ICine }) => {
             </div>
 
             {/* Elemento 2: Veracines */}
-            <div className={`flex flex-col`}>
+            <div className={`flex flex-col w-full`}>
+                <span className={`text-white text-[3rem] flex-1 text-left ${font.className}`}
+                      style={{zIndex: 10}}>VERACINES</span>
                 <span
-                    className={`text-white text-[3rem] flex-1 text-left ${font.className}`}
-                    style={{zIndex: 10}}
-                >
-                VERACINES
-            </span>
-
-                {/* Elemento 3: Nombre del cine con icono de ubicación */}
-                <span
-                    className={`items-center text-white text-[1.5rem] text-right ${font.className}`}
-                >
-                    {cine?.nombre}
-            </span>
+                    className={`items-center text-white text-[1.4rem] text-left pl-8 ${font.className}`}>{cine?.nombre}</span>
             </div>
+
+            <div className="flex items-center" style={{zIndex: 10}}>
+                <div style={{position: "relative", width: "100px", height: "100px"}}>
+                    <div
+                        className={`bg-white shadow-md flex items-center justify-center rounded-full ${font.className}`}
+                        style={{
+                            width: "100px",
+                            height: "80px",
+                            fontSize: "1.2rem",
+                            fontWeight: "bold",
+                            color: "#0e226a", // Color llamativo para el precio
+                            border: "2px solid #0e226a",
+                            boxShadow: "0 5px 10px rgba(0, 0, 0, 0.15)",
+                            textAlign: "center",
+                        }}
+                    >
+                        5,80€
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     );
