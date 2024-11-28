@@ -69,7 +69,7 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
                     display: 'block',
                     padding: '0 12px 0 12px',
                     fontSize: '1em',
-                    lineHeight: '2em',
+                    lineHeight: numPeliculas == 3 ? '1.6em' : '2em',
                     color: '#222'
                 }}
             >
@@ -94,16 +94,16 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
         >
             {proyeccion.pelicula.imagen ? (
                 <div
-                    className={`grid ${numPeliculas == 1 ? 'grid-cols-2' : `grid-cols-4`} py-2 px-2`}
+                    className={`grid ${numPeliculas == 1 ? 'grid-cols-2' : numPeliculas == 2 ? 'grid-cols-4' : `grid-cols-6`} py-2 px-2`}
                 >
                     <FotoPelicula cine={cine} pelicula={proyeccion.pelicula}/>
                     <div
                         className={`${
-                            numPeliculas == 1 ? '' : 'col-span-3'
+                            numPeliculas == 1 ? '' : numPeliculas == 2 ? 'col-span-3' : 'col-span-5'
                         } flex flex-col space-around justify-top uppercase font-bold text-center`}
                     >
                         <div style={{marginBottom: '10px'}} className={'underline'}>
-                            <strong style={{color: '#2d438f', fontSize: '1.4em'}}>
+                            <strong style={{color: '#2d438f', fontSize: numPeliculas == 3 ? '1em' : '1.4em'}}>
                                 {proyeccion.pelicula.titulo}
                             </strong>
                         </div>
@@ -114,7 +114,7 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
                                 className={`text-primary text-center font-bold flex items-center justify-center mb-${
                                     numPeliculas > 1 ? 2 : 4
                                 }`}
-                                style={{fontSize: '11px'}}
+                                style={{fontSize: numPeliculas == 3 ? '0.45em' : '0.6em'}}
                             >
                                 {horario}
                             </div>

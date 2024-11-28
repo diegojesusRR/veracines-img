@@ -23,22 +23,7 @@ export default function Home() {
                     }
                 ]
             }]
-        },
-            {
-                pelicula: {
-                    titulo: '',
-                    tamanoTitulo: 12,
-                },
-                dias: [{
-                    dia: new Date(),
-                    horarios: [
-                        {
-                            hora: "18:00",
-                            vose: false,
-                        }
-                    ]
-                }]
-            }]
+        }]
     }
 
     const [config, setConfig] = useState(configInicial1);

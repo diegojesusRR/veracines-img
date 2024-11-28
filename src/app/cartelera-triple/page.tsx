@@ -1,5 +1,5 @@
 "use client"
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {cines} from "@/data/cines";
 import {Cartelera1Pelicula} from "@/components/cartelera/invierno/catelera1Pelicula";
 import {FormularioCartelera} from "../../components/forms/new/formularioCartelera";
@@ -23,7 +23,37 @@ export default function Home() {
                     }
                 ]
             }]
-        }]
+        },
+            {
+                pelicula: {
+                    titulo: '',
+                    tamanoTitulo: 12,
+                },
+                dias: [{
+                    dia: new Date(),
+                    horarios: [
+                        {
+                            hora: "18:00",
+                            vose: false,
+                        }
+                    ]
+                }]
+            },
+            {
+                pelicula: {
+                    titulo: '',
+                    tamanoTitulo: 12,
+                },
+                dias: [{
+                    dia: new Date(),
+                    horarios: [
+                        {
+                            hora: "18:00",
+                            vose: false,
+                        }
+                    ]
+                }]
+            }]
     }
 
     const [config, setConfig] = useState(configInicial1);

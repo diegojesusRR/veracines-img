@@ -39,13 +39,18 @@ export const FormularioPeliculaHorario = ({config, setConfig, index}: {
     }
 
     return (
-        <Card elevation={9} sx={{ marginLeft: "20px"}}>
+        <Card elevation={9} sx={{ margin: "10px", width: '100%'}}>
             <Box alignItems="center" justifyContent="center" sx={{padding: "10px"}}>
-                <FormularioPelicula pelicula={config.pelicula} onChange={handleChangePelicula} label={"Pelicula 1"}/>
+                <FormularioPelicula pelicula={config.pelicula} onChange={handleChangePelicula} label={"Pelicula " + (index+1)}/>
                 {
                     config.dias.map((x, index2) => <FormularioProyeccionDia config={x} key={`proyeccionDia-${index2}`} index={index2} onChange={handleChangeDia}/>)
                 }
-                <Button onClick={addNuevoDia}>+ Día</Button>
+                <Button
+                    onClick={addNuevoDia}
+                    className="my-2 self-center w-full border-2 bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                >
+                    + Dia
+                </Button>
             </Box>
         </Card>
     )
