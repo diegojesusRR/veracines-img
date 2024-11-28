@@ -11,8 +11,8 @@ export default function Home() {
                 {/*<Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-cara-b"}> Cartelera Cara B</Link>*/}
                 {/*<Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-mixta"}> Cartelera Mixta</Link>*/}
                 {/*<Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-hoy"}> Cartelera 2 Peliculas</Link>*/}
-                <Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-unica"}> Cartelera 1 Pelicula</Link>
-                <Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-doble"}> Cartelera 2 Pelicula</Link>
+                <Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-invierno"}> Cartelera Con Horarios</Link>
+                {/*<Link className="p-4 border-2 bg-azul text-white text-xl m-4" href={"/cartelera-doble"}> Cartelera 2 Pelicula</Link>*/}
             </div>
         </div>
 

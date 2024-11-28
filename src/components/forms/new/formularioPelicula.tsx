@@ -78,7 +78,6 @@ export const FormularioPelicula = ({
     }
 
     return (
-        <Card className={'mt-4'}>
             <div className={"flex"}>
                 <TextField
                     label={label}
@@ -101,6 +100,5 @@ export const FormularioPelicula = ({
 
                 </div>
             </div>
-        </Card>
     )
 }
