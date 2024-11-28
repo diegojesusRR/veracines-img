@@ -1,6 +1,6 @@
 'use client'
 
-import React from "react";
+import React, {useEffect} from "react";
 import {FotoPelicula} from "@/components/fotoPelicula";
 import {ICine} from "@/data/cines";
 import {ICarteleraPeliculaHorario} from "@/interfaces/formularios";
@@ -11,7 +11,7 @@ const font = Font({
     weight: ["400"], // Regular weight
 });
 
-export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion: ICarteleraPeliculaHorario}) => {
+export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICine, proyeccion: ICarteleraPeliculaHorario, numPeliculas: number}) => {
 
     const horarios = proyeccion.dias.map((dia) => {
         const diaSemana = dia.dia.getDay();
@@ -52,7 +52,7 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
         // Combinar horarios con comas y manejar el último elemento con "y"
         const horariosText = horarios.length > 0
             ? (
-                <span>
+                <span className={`no-underline`}>
             {horarios.map((horario, index) => (
                 <React.Fragment key={index}>
                     {horario}{index < horarios.length - 2 ? ', ' : index < horarios.length - 1 ? ' y ': ''}
@@ -81,33 +81,51 @@ export const PeliculaConHorario = ({cine, proyeccion}: { cine: ICine, proyeccion
         );
     });
 
-
-
-
     return (
-        <div style={{width: '100%', height: 'calc(100% - 236px)', paddingTop: '20px', paddingLeft:'20px', paddingRight:'20px'}} className={`flex flex-col justify-center`}>
-            {
-                proyeccion.pelicula.imagen ?
-                    <div className={`grid grid-cols-2 max-h-[640px] py-2 px-2`}>
-                        <div className={``}>
-                            <FotoPelicula cine={cine} pelicula={proyeccion.pelicula}/>
-
+        <div
+            style={{
+                width: '100%',
+                height: `calc((100% - 236px) / ${numPeliculas})`,
+                paddingTop: '20px',
+                paddingLeft: '20px',
+                paddingRight: '20px',
+            }}
+            className="flex flex-col justify-center"
+        >
+            {proyeccion.pelicula.imagen ? (
+                <div
+                    className={`grid ${numPeliculas == 1 ? 'grid-cols-2' : `grid-cols-4`} py-2 px-2`}
+                >
+                    <FotoPelicula cine={cine} pelicula={proyeccion.pelicula}/>
+                    <div
+                        className={`${
+                            numPeliculas == 1 ? '' : 'col-span-3'
+                        } flex flex-col space-around justify-top uppercase font-bold text-center`}
+                    >
+                        <div style={{marginBottom: '10px'}} className={'underline'}>
+                            <strong style={{color: '#2d438f', fontSize: '1.4em'}}>
+                                {proyeccion.pelicula.titulo}
+                            </strong>
                         </div>
-                        <div className={`col-span-1 flex flex-col space-around justify-top uppercase font-bold text-center underline`}>
-                                <div className={`mb-8`}><strong style={{color: '#2d438f', fontSize: '1.4em'}}>
-                                    {proyeccion.pelicula.titulo}
-                                </strong></div>
-                            {horarios.map((horario, index) => (
-                                <div key={`horario-${index}`}
-                                     className={`text-primary text-center font-bold flex items-center justify-center mb-4`}
-                                     style={{fontSize: '11px'}}>
-                                    {horario}
-                                </div>
-                            ))}
+                        <div>
+                        {horarios.map((horario, index) => (
+                            <div
+                                key={`horario-${index}`}
+                                className={`text-primary text-center font-bold flex items-center justify-center mb-${
+                                    numPeliculas > 1 ? 2 : 4
+                                }`}
+                                style={{fontSize: '11px'}}
+                            >
+                                {horario}
+                            </div>
+                        ))}
                         </div>
                     </div>
-                    : <></>
-            }
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
+
     )
 }

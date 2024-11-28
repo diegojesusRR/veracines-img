@@ -16,7 +16,7 @@ export const Cartelera1Pelicula = ({config} : {config: ICarteleraPeliculas}) => 
                 <div className="w-[800px] h-[800px] relative grid-cols-1">
                     {config.cine && <CabeceraHorizontal cine={config.cine} />}
                     {config.proyecciones && config.proyecciones.map((proyeccion, index) => proyeccion &&
-                        <PeliculaConHorario key={`cine-${index}`} cine={config.cine} proyeccion={proyeccion} />)
+                        <PeliculaConHorario key={`cine-${index}`} cine={config.cine} proyeccion={proyeccion} numPeliculas={config.proyecciones.length} />)
                     }
                     {config.cine && <Footer cine={config.cine}/>}
                 </div>
