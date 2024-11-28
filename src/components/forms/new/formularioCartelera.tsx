@@ -106,7 +106,7 @@ const SwipeableProjections = ({ config, setConfig, handleAddProyeccion, handleRe
 
     const handleRemoveProyeccionAndPrevious = (index: number) => {
         handleRemoveProyeccion(index);
-        setCurrentIndex(currentIndex - 1);
+        setCurrentIndex(currentIndex == 0 ? 0 : currentIndex - 1);
     }
 
     return (
