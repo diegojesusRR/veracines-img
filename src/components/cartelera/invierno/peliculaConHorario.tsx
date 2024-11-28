@@ -96,10 +96,13 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
                 <div
                     className={`grid ${numPeliculas == 1 ? 'grid-cols-2' : numPeliculas == 2 ? 'grid-cols-4' : `grid-cols-6`} py-2 px-2`}
                 >
-                    <FotoPelicula cine={cine} pelicula={proyeccion.pelicula}/>
+                    <div className={`${numPeliculas == 3 ? 'col-start-2' : ''}`}>
+                        <FotoPelicula cine={cine} pelicula={proyeccion.pelicula} />
+
+                    </div>
                     <div
                         className={`${
-                            numPeliculas == 1 ? '' : numPeliculas == 2 ? 'col-span-3' : 'col-span-5'
+                            numPeliculas == 1 ? '' : numPeliculas == 2 ? 'col-span-3' : 'col-span-4'
                         } flex flex-col space-around justify-top uppercase font-bold text-center`}
                     >
                         <div style={{marginBottom: '10px'}} className={'underline'}>
