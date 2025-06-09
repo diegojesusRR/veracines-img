@@ -69,8 +69,8 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
                     display: 'block',
                     padding: '0 12px 0 12px',
                     fontSize: '1em',
-                    lineHeight: numPeliculas == 3 ? '1.6em' : '2em',
-                    marginBottom: numPeliculas >= 2 ? '4px' : '10px',
+                    lineHeight: numPeliculas == 3 ? '1.6em' : '1.8em',
+                    marginBottom: numPeliculas >= 2 ? '0px' : '10px',
                     color: '#222'
                 }}
             >
