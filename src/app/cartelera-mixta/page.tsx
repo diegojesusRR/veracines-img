@@ -41,7 +41,7 @@ export default function Home() {
     }
 
     const configInicial2: IConfigCartelera = {
-        cine: cines.find(cine => cine.id === 3),
+        cine: cines.find(cine => cine.id === 1),
         peliculas: initPeliculas(4),
     }
 

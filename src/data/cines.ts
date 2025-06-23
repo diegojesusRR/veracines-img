@@ -24,9 +24,9 @@ export const cines = [
         id: 1,
         nombre: "Cine Municipal Regio",
         corto: "regio",
-        color: "azul",
+        color: "rojo",
         colorRef: {
-            normal: "#2d438f",
+            normal: "#8f2d2d",
             dark: "#0e226a",
         },
         direccion: {
