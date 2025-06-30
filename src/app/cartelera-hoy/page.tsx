@@ -1,11 +1,10 @@
 "use client"
 import React, {useEffect, useState} from "react";
-import {FormularioCartelera} from "@/components/forms/formularioCartelera";
+import {FormularioCartelera} from "../../components/forms/new/formularioCartelera";
 import {ICine} from "@/data/cines";
-import {CarteleraCaraB} from "../../components/cartelera/verano/panfleto/carteleraCaraB";
 import {cines} from "@/data/cines";
-import {CarteleraCaraA} from "../../components/cartelera/verano/panfleto/carteleraCaraA";
 import {CarteleraHoy} from "@/components/cartelera/verano/panfleto/carteleraHoy";
+import {ICarteleraPeliculas} from "@/interfaces/formularios";
 
 export interface IPelicula {
     titulo: string,
@@ -41,16 +40,42 @@ const initPeliculas = (numPeliculas: number) => {
 }
 export default function Home() {
 
-    const configInicial1 = {
-        cine: cines.find(cine => cine.id === 2),
-        peliculas: initPeliculas(1),
-        portada: initPelicula(new Date()),
+    const configInicial1: ICarteleraPeliculas = {
+        cine: cines.find(cine => cine.id === 2)!,
+        proyecciones: [{
+            pelicula: {
+                titulo: '',
+                tamanoTitulo: 12,
+            },
+            dias: [{
+                dia: new Date(),
+                horarios: [
+                    {
+                        hora: "22:00",
+                        vose: false,
+                    }
+                ]
+            }]
+        }]
     }
 
-    const configInicial2 = {
-        cine: cines.find(cine => cine.id === 3),
-        peliculas: initPeliculas(1),
-        portada: initPelicula(new Date()),
+    const configInicial2: ICarteleraPeliculas = {
+        cine: cines.find(cine => cine.id === 1)!,
+        proyecciones: [{
+            pelicula: {
+                titulo: '',
+                tamanoTitulo: 12,
+            },
+            dias: [{
+                dia: new Date(),
+                horarios: [
+                    {
+                        hora: "22:00",
+                        vose: false,
+                    }
+                ]
+            }]
+        }]
     }
 
     const [config1, setConfig1] = useState(configInicial1);
@@ -70,8 +95,14 @@ export default function Home() {
                 <CarteleraHoy config1={config1} config2={config2}/>
             </div>
 
-            <FormularioCartelera config={config1} setConfig={setConfig1}/>
-            <FormularioCartelera config={config2} setConfig={setConfig2}/>
+            <FormularioCartelera config={config1} setConfig={setConfig1}  configCartelera={{
+                minProyecciones: 1,
+                maxProyecciones: 1,
+            }}/>
+            <FormularioCartelera config={config2} setConfig={setConfig2}  configCartelera={{
+                minProyecciones: 1,
+                maxProyecciones: 1,
+            }}/>
         </div>
 
     );
