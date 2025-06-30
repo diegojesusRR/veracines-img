@@ -1,13 +1,13 @@
 import type {Config} from "tailwindcss";
 
-const azul = {
+const vera = {
     normal: "#2d438f",
     dark: "#0e226a",
 }
 
-const rojo = {
-    normal: "#e10000",
-    dark: "#b90000",
+const regio = {
+    normal: "#dc3545",
+    dark: "#bd2c3a",
 }
 
 const naranja = {
@@ -16,18 +16,18 @@ const naranja = {
 }
 
 const colors = {
-    azul: azul.normal,
-    rojo: rojo.normal,
+    vera: vera.normal,
+    regio: regio.normal,
     naranja: naranja.normal,
-    "dark-azul": azul.dark,
-    "dark-rojo": rojo.dark,
+    "dark-vera": vera.dark,
+    "dark-regio": regio.dark,
     "dark-naranja": naranja.dark,
     blanco: "#ffffff",
 }
 
 const darkColors = {
-    azul: azul.dark,
-    rojo: rojo.dark,
+    vera: vera.dark,
+    regio: regio.dark,
     naranja: naranja.dark,
     blanco: "#ffffff",
 }
@@ -47,8 +47,8 @@ const config: Config = {
                 fondo: "url('/src/public/images/fondo.png')"
             },
             borderColor: {
-                azul: azul.dark,
-                rojo: rojo.dark,
+                vera: vera.dark,
+                regio: regio.dark,
                 naranja: naranja.dark,
             },
         },
