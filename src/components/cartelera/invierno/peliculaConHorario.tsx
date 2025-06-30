@@ -87,7 +87,6 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
             style={{
                 width: '100%',
                 height: `calc((100% - 236px) / ${numPeliculas})`,
-                paddingTop: '20px',
                 paddingLeft: '20px',
                 paddingRight: '20px',
             }}
