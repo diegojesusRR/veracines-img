@@ -141,7 +141,7 @@ export const PeliculaCarteleraConHorario = ({cine, proyeccion, numPeliculas}: { 
                                             numPeliculas > 1 ? 2 : 4
                                         }`}
                                         style={{
-                                            fontSize: numPeliculas == 3 ? '0.45em' : '0.65em',
+                                            fontSize: horarios.length > 4 ? '0.65em' : '0.8em',
                                             flex: 1,
                                             minWidth: 0,
                                             overflow: 'hidden',
@@ -150,7 +150,7 @@ export const PeliculaCarteleraConHorario = ({cine, proyeccion, numPeliculas}: { 
                                             justifyContent: 'center',
                                             display: 'flex',
                                             marginTop: '1em',
-                                            maxWidth: '74px'
+                                            maxWidth: horarios.length > 4 ? '74px' : '100px',
                                         }}
                                     >
                                         {horario}
