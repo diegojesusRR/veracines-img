@@ -54,7 +54,7 @@ export default function Home() {
     return (
         <div className="flex flex-row">
             <div className="hidden">
-                <div className="bg-azul shadow-azul text-azul"/>
+                <div className="bg-vera shadow-vera text-vera"/>
                 <div className="bg-rojo shadow-rojo text-rojo"/>
                 <div className="bg-naranja shadow-naranja text-naranja"/>
             </div>
