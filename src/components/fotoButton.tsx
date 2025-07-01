@@ -31,7 +31,7 @@ export const FotoButton = ({label}: {label: string}) => {
         }
     }
 
-    return (<button className={"text-white bg-azul p-2 mt-2 w-full font-bold border-2"}
+    return (<button className={"text-white bg-vera p-2 mt-2 w-full font-bold border-2"}
                     onClick={handleHacerFoto}>Hacer foto
     </button>)
 }

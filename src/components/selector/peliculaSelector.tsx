@@ -114,11 +114,11 @@ export const PeliculaSelector = ({pelicula, onChange, index, label}: {
                     sx={{marginBottom: "10px"}}
                 />
                 <div className="flex flex-row justify-center items-center space-x-4 py-3 px-2">
-                    <button className={"bg-azul text-white p-2"}
+                    <button className={"bg-vera text-white p-2"}
                             onClick={() => handleChangeIndexImagen((indiceActual - 1 + imagenes.length) % imagenes.length)}>-
                     </button>
                     <div>{indiceActual + 1}/{imagenes.length}</div>
-                    <button className={"bg-azul text-white p-2"}
+                    <button className={"bg-vera text-white p-2"}
                             onClick={() => handleChangeIndexImagen((indiceActual + 1) % imagenes.length)}>+
                     </button>
                 </div>
