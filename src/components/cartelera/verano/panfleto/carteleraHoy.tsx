@@ -15,7 +15,7 @@ export const CarteleraHoy = ({config1, config2}: { config1: ICarteleraPeliculas,
                 <div className="w-[400px] h-[800px] relative flex flex-col">
                     {config1.cine && <CineCabeceraHorizontal config={config1}/>}
                     {config1.cine &&
-                        <div className={"grid grid-cols-1 m-auto relative"}>
+                        <div className={"grid grid-cols-1 mt-4 relative"}>
                             {config1.cine && config1.proyecciones && config1.proyecciones.map((proyeccion, index) => {
                                     if (!proyeccion) return null
                                     return <PeliculaCarteleraConHorario key={`cine-${index}`} cine={config1.cine}

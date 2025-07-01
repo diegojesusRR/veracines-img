@@ -94,7 +94,7 @@ export const PeliculaCarteleraConHorario = ({cine, proyeccion, numPeliculas}: { 
         >
             {proyeccion.pelicula.imagen ? (
                 <div className="flex flex-col w-full items-center">
-                    <div className="w-full flex justify-center mb-2">
+                    <div className="w-full flex justify-center mb-2 px-4">
                         <FotoPelicula cine={cine} pelicula={proyeccion.pelicula} />
                     </div>
                     <div className="flex flex-col uppercase font-bold text-center w-full">
@@ -103,8 +103,7 @@ export const PeliculaCarteleraConHorario = ({cine, proyeccion, numPeliculas}: { 
                             style={{
                                 marginBottom: '10px',
                                 textAlign: 'center',
-                                height: '3.4em',
-                                overflow: 'hidden',
+                                height: '5em',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -123,7 +122,6 @@ export const PeliculaCarteleraConHorario = ({cine, proyeccion, numPeliculas}: { 
                                     lineHeight: '1.3em',
                                     display: 'inline-block',
                                     width: '100%',
-                                    whiteSpace: 'nowrap',
                                     overflow: 'hidden',
                                     textOverflow: 'ellipsis',
                                     textAlign: 'center',
@@ -148,10 +146,11 @@ export const PeliculaCarteleraConHorario = ({cine, proyeccion, numPeliculas}: { 
                                             minWidth: 0,
                                             overflow: 'hidden',
                                             width: 'calc(100% / ' + horarios.length + ' + 20px)',
-                                            maxWidth: 'calc(100% / ' + horarios.length + ' + 20px)',
+                                            //maxWidth: 'calc(100% / ' + horarios.length + ' + 20px)',
                                             justifyContent: 'center',
                                             display: 'flex',
-                                            marginTop: '1em'
+                                            marginTop: '1em',
+                                            maxWidth: '74px'
                                         }}
                                     >
                                         {horario}
