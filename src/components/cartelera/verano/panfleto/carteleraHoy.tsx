@@ -7,7 +7,6 @@ import {PeliculaCarteleraConHorario} from "@/components/peliculaCarteleraConHora
 
 export const CarteleraHoy = ({config1, config2}: { config1: ICarteleraPeliculas, config2: ICarteleraPeliculas }) => {
 
-    console.log(config1.proyecciones)
     return (
         <>
             <FotoButton label={"caraB"}/>
