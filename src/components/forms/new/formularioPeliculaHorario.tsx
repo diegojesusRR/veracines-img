@@ -4,10 +4,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import {ICarteleraPeliculaHorario, IPelicula, IProyeccionesPeliculaDia} from "@/interfaces/formularios";
 import {FormularioPelicula} from "@/components/forms/new/formularioPelicula";
 import {FormularioProyeccionDia} from "@/components/forms/new/formularioProyeccionDia";
+import {ICine} from "@/data/cines";
 
-export const FormularioPeliculaHorario = ({config, setConfig, index}: {
+export const FormularioPeliculaHorario = ({cine, config, setConfig, index}: {
     config: ICarteleraPeliculaHorario,
     setConfig: (config: ICarteleraPeliculaHorario, index: number) => void,
+    cine?: ICine,
     index: number,
 }) => {
     const handleChangePelicula = (pelicula: IPelicula) => {
@@ -34,7 +36,7 @@ export const FormularioPeliculaHorario = ({config, setConfig, index}: {
     const addNuevoDia = () => {
         setConfig({
             pelicula: config.pelicula,
-            dias: [...config.dias, {dia: getSiguienteDia(), horarios: [{hora: "18:00", vose: false}]}],
+            dias: [...config.dias, {dia: getSiguienteDia(), horarios: [{hora: cine?.horaDefectoPelicula ?? "18:00", vose: false}]}],
         }, index);
     }
 

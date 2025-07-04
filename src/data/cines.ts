@@ -4,6 +4,7 @@ export interface ICine {
     nombre: string;
     corto: string;
     color: string;
+    horaDefectoPelicula: string;
     colorRef: {
         normal: string;
         dark: string;
@@ -29,6 +30,7 @@ export const cines = [
             normal: "#dc3545",
             dark: "#0e226a",
         },
+        horaDefectoPelicula: "20:00",
         direccion: {
             calle: "Radio Nacional",
             numero: "s/n",
@@ -47,6 +49,7 @@ export const cines = [
             normal: "#2d438f",
             dark: "#0e226a",
         },
+        horaDefectoPelicula: "22:00",
         direccion: {
             calle: "Antonio de Torres",
             numero: "2",
