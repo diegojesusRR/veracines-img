@@ -29,16 +29,22 @@ export const FormularioCartelera = ({ config, setConfig, configCartelera }: {
     };
 
     const handleAddProyeccion = () => {
+
+        // Obtener el ultimo dia de proyecciones actuales
+        const ultimoDia  = config.proyecciones[config.proyecciones.length - 1].dias[config.proyecciones[config.proyecciones.length - 1].dias.length - 1].dia;
+
+        const proximoDia = new Date(ultimoDia.getTime() + 86400000);
+
         const nuevaProyeccion: ICarteleraPeliculaHorario = {
             pelicula: {
                 titulo: '',
                 tamanoTitulo: 12,
             },
             dias: [{
-                dia: new Date(),
+                dia: proximoDia,
                 horarios: [
                     {
-                        hora: "18:00",
+                        hora: config.cine.horaDefectoPelicula,
                         vose: false,
                     }
                 ]
@@ -160,6 +166,7 @@ const SwipeableProjections = ({ config, setConfig, handleAddProyeccion, handleRe
                             index={index}
                             config={proyeccion}
                             setConfig={setConfig}
+                            cine={config.cine}
                         />
                         <Button
                             variant="contained"

@@ -5,6 +5,13 @@ import Image from "next/image";
 import veraCinta from "@/public/images/vera-cinta.png";
 import garruchaCinta from "@/public/images/garrucha-cinta.png";
 import regioCinta from "@/public/images/regio-cinta.png";
+import { Fascinate_Inline as Font } from 'next/font/google';
+
+const font = Font({
+    subsets: ["latin"],
+    weight: ["400"],
+});
+
 export const CineCabeceraHorizontalV2 = ({config} : {config: IConfigCartelera}) => {
 
     const cinta  = config.cine?.corto === 'vera' ? veraCinta : config.cine?.corto === 'garrucha' ? garruchaCinta : regioCinta;
@@ -18,7 +25,10 @@ export const CineCabeceraHorizontalV2 = ({config} : {config: IConfigCartelera}) 
                     src={cinta}
                 />
             )}
-            <span className="text-white font-bold text-xl w-full text-center px-[90px]">
+            <span
+                className="text-white font-bold text-[28px] w-full text-center px-[90px]"
+                style={{ fontFamily: font.style.fontFamily }}
+            >
         {config.cine?.nombre}
     </span>
             <Image
