@@ -4,7 +4,7 @@ export interface ICine {
     nombre: string;
     corto: string;
     color: string;
-    horaDefectoPelicula: string;
+    horaDefectoPelicula?: string;
     colorRef: {
         normal: string;
         dark: string;
