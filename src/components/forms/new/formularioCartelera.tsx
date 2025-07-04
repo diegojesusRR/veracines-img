@@ -44,7 +44,7 @@ export const FormularioCartelera = ({ config, setConfig, configCartelera }: {
                 dia: proximoDia,
                 horarios: [
                     {
-                        hora: config.cine.horaDefectoPelicula,
+                        hora: config.cine.horaDefectoPelicula ?? '18:00',
                         vose: false,
                     }
                 ]
