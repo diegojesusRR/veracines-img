@@ -29,7 +29,7 @@ export const PortadaCaraA = ({cine, portada} : {cine: ICine, portada: IPelicula}
     }).filter((anio, index, array) => array.indexOf(anio) === index);
 
     return (
-        <div className={`portada w-[400px] h-[800px] relative flex flex-col`}>
+        <div className={`portada photo-class w-[400px] h-[800px] relative flex flex-col`} id={"portada"} id={"portada"}>
             {cine && portada && portada.imagen &&
                 <>
                     <img

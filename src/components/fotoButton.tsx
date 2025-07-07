@@ -4,7 +4,7 @@ import * as htmlToImage from "html-to-image";
 export const FotoButton = ({label}: {label: string}) => {
 
     const handleHacerFoto = () => {
-        const portada = document.querySelector('.portada')
+        const portada = document.querySelector('.photo-class')
         if(portada){
             htmlToImage.toJpeg(portada as HTMLElement)
                 .then(function (dataUrl) {
