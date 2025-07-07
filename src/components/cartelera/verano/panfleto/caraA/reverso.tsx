@@ -5,7 +5,7 @@ import {ICine} from "@/data/cines";
 
 export const ReversoCaraA = ({cine, proximamente} : {cine: ICine, proximamente: (IPelicula|undefined)[]}) => {
     return (
-        <div className="portada w-[400px] h-[800px] relative flex flex-col">
+        <div className="portada photo-class w-[400px] h-[800px] relative flex flex-col" id={"portada"}>
             {cine &&
                 <>
                     <img

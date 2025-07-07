@@ -52,9 +52,9 @@ export const PeliculaHorizontalConHorario = ({ cine, proyeccion, numPeliculas }:
     });
 
     return (
-        <div className="flex flex-row w-full items-stretch bg-white rounded-lg shadow overflow-hidden">
+        <div className="portada flex flex-row w-full items-stretch bg-white rounded-lg shadow overflow-hidden">
             {/* Foto a la izquierda, más grande */}
-            <div className="flex-shrink-0 flex items-center justify-center" style={{ width: 160, minHeight: 180 }}>
+            <div className="flex-shrink-0 flex items-center justify-center ml-1" style={{ width: 150, minHeight: 170 }}>
                 {proyeccion.pelicula.imagen && (
                     <FotoPelicula
                         cine={cine}

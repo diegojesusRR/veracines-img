@@ -10,7 +10,7 @@ export const CarteleraHoy = ({config1, config2}: { config1: ICarteleraPeliculas,
     return (
         <>
             <FotoButton label={"caraB"}/>
-            <div className="portada w-[800px] h-[800px] relative flex flex-row">
+            <div className="portada photo-class w-[800px] h-[800px] relative flex flex-row" id={"portada"}>
                 <div className="w-[400px] h-[800px] relative flex flex-col">
                     {config1.cine && <CineCabeceraHorizontal config={config1}/>}
                     {config1.cine &&
