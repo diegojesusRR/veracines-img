@@ -10,7 +10,7 @@ export const CarteleraMixta = ({config1, config2} : {config1: IConfigCartelera, 
     return (
         <>
             <FotoButton label={"carteleraMixta"}/>
-            <div className="portada">
+            <div className="portada photo-class" id={"portada"}>
                 <div className="w-[800px] h-[400px] relative flex flex-row">
                     {config1.cine && <CineCabeceraVertical config={config1} />}
                     {config1.cine &&

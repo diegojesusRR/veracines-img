@@ -12,7 +12,7 @@ export const Cartelera1Pelicula = ({config} : {config: ICarteleraPeliculas}) => 
     return (
         <>
             <FotoButton label={"carteleraMixta"}/>
-            <div className="portada">
+            <div className="portada photo-class" id={"portada"}>
                 <div className="w-[800px] h-[800px] relative grid-cols-1">
                     {config.cine && <CabeceraHorizontal cine={config.cine} />}
                     {config.proyecciones && config.proyecciones.map((proyeccion, index) => proyeccion &&
