@@ -10,7 +10,7 @@ export const CarteleraCaraA = ({config} : {config: IConfigCaraA}) => {
     return (
         <>
             <FotoButton label={"caraA"}/>
-            <div className="portada photo-class w-[800px] h-[800px] relative flex flex-row id={"portada"}">
+            <div className="portada photo-class w-[800px] h-[800px] relative flex flex-row id=portada">
                 {config.cine &&
                     <>
                         <ReversoCaraA cine={config.cine} proximamente={config.proximamente!} />
