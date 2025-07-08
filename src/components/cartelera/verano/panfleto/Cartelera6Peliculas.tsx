@@ -7,7 +7,7 @@ import {PeliculaHorizontalConHorario} from "@/components/peliculaHorizontalConHo
 export const Cartelera6Peliculas = ({config}: { config: ICarteleraPeliculas }) => {
     return (<>
         <FotoButton label={"caraB"}/>
-        <div className={`photo-class ${config.cine.color == 'vera' ? `bg-blue-50` : `bg-red-50`} w-[800px] h-[800px] relative flex flex-row`}>
+        <div className={`photo-class bg-blue-50 w-[400px] h-[800px] relative flex flex-row`}>
             <div className="photo-class w-[800px] h-[800px] relative flex flex-col">
                 {config.cine && <CineCabeceraHorizontalV2 config={config}/>}
                 {config.cine &&
