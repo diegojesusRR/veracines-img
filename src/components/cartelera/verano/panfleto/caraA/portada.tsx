@@ -3,6 +3,18 @@ import React from "react";
 import {IConfigCartelera, IPelicula} from "@/app/cartelera-cara-b/page";
 import {ICine} from "@/data/cines";
 
+import {Monoton as Font} from 'next/font/google';
+import { Fascinate_Inline as Font2 } from 'next/font/google';
+
+const font = Font({
+    subsets: ["latin"],
+    weight: ["400"], // Regular weight
+});
+
+const font2 = Font2({
+    subsets: ["latin"],
+    weight: ["400"], // Regular weight
+});
 
 export const PortadaCaraA = ({cine, portada} : {cine: ICine, portada: IPelicula}) => {
 
@@ -29,7 +41,7 @@ export const PortadaCaraA = ({cine, portada} : {cine: ICine, portada: IPelicula}
     }).filter((anio, index, array) => array.indexOf(anio) === index);
 
     return (
-        <div className={`portada photo-class w-[400px] h-[800px] relative flex flex-col`} id={"portada"} id={"portada"}>
+        <div className={`portada photo-class w-[400px] h-[800px] relative flex flex-col`} id={"portada"}>
             {cine && portada && portada.imagen &&
                 <>
                     <img
@@ -40,15 +52,11 @@ export const PortadaCaraA = ({cine, portada} : {cine: ICine, portada: IPelicula}
                     />
                     <div className={`absolute flex flex-col w-full h-full`}>
                         <div
-                            className={`bg-${cine.color} border-2 border-dark-${cine.color} top-0 left-0 m-2 p-3 flex items-center justify-center flex-col rounded-lg`}>
-                            <h1 className={`text-${cine.color} text-xl text-white capitalize font-bold text-center`}>{cine.nombre}</h1>
+                            className={`bg-[#2d438f] border-2 border-[#0e226a] top-0 left-0 m-2 p-3 flex items-center justify-center flex-col rounded-lg`}>
+                            <h1 className={`text-white font-bold text-center text-[20px]`} style={{fontFamily: font2.style.fontFamily}}>Cartelera Veracines</h1>
                         </div>
-                        <div className={`bg-${cine.color} border-2 border-${cine.color} rounded-lg w-fit mx-auto px-5 py-1`}>
+                        <div className={`bg-[#dc3545] border-2 border-[#bd2c3a] rounded-lg w-fit mx-auto px-5 py-1`}  style={{fontFamily: font.style.fontFamily}}>
                             <p className={`text-${cine.color} text-sm text-white capitalize font-bold text-center`}>{meses.join(' - ')} {anios.join(' - ')}</p>
-                        </div>
-                        <div
-                            className={`absolute w-full bg-${cine.color} border-t-2 border-${cine.color} bottom-0 left-0 p-3 flex items-center justify-center flex-col`}>
-                            <p className={`text-${cine.color} text-sm text-white capitalize font-bold text-center`}>Todas las funciones empezarán a las 22:00</p>
                         </div>
                     </div>
 

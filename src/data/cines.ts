@@ -9,6 +9,7 @@ export interface ICine {
         normal: string;
         dark: string;
     };
+    servicios: string[],
     direccion: {
         calle: string;
         numero: string;
@@ -23,13 +24,14 @@ export interface ICine {
 export const cines = [
     {
         id: 1,
-        nombre: "Cine Municipal Regio",
+        nombre: "Cine Regio",
         corto: "regio",
         color: "regio",
         colorRef: {
             normal: "#dc3545",
             dark: "#0e226a",
         },
+        servicios: ["pops", "climate", "2k", "ice-creams"],
         horaDefectoPelicula: "20:00",
         direccion: {
             calle: "Radio Nacional",
@@ -42,7 +44,7 @@ export const cines = [
     },
     {
         id: 2,
-        nombre: "Cine de Verano Terraza de Vera",
+        nombre: "Cine Municipal Terraza de Vera",
         corto: "vera",
         color: "vera",
         colorRef: {
@@ -50,6 +52,7 @@ export const cines = [
             dark: "#0e226a",
         },
         horaDefectoPelicula: "22:00",
+        servicios: ["pops", "parking", "2k", "ice-creams", "burguer"],
         direccion: {
             calle: "Antonio de Torres",
             numero: "2",
@@ -64,6 +67,7 @@ export const cines = [
         nombre: "Cine Tenis de Garrucha",
         corto: "garrucha",
         color: "naranja",
+        servicios: [],
         colorRef: {
             normal: "#f7770e",
             dark: "#bf5f00",
