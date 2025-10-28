@@ -4,7 +4,6 @@ import { CineSelector } from "@/components/selector/cineSelector";
 import { ICarteleraPeliculaHorario, ICarteleraPeliculas, IConfigCartelera } from "@/interfaces/formularios";
 import { FormularioPeliculaHorario } from "@/components/forms/new/formularioPeliculaHorario";
 import { ICine } from "@/data/cines";
-import SwipeableViews from 'react-swipeable-views';
 import { useState } from "react";
 
 export const FormularioCartelera = ({ config, setConfig, configCartelera }: {
@@ -148,12 +147,7 @@ const SwipeableProjections = ({ config, setConfig, handleAddProyeccion, handleRe
             </Stack>
 
             {/* Carrusel */}
-            <SwipeableViews
-                index={currentIndex}
-                onChangeIndex={(index) => setCurrentIndex(index)}
-                enableMouseEvents
-            >
-                {config.proyecciones.map((proyeccion: ICarteleraPeliculaHorario, index: number) => (
+                {config.proyecciones.filter((x, i) => i == currentIndex).map((proyeccion: ICarteleraPeliculaHorario, index: number) => (
                     <Box
                         key={`peliculaHorario-${index}`}
                         sx={{
@@ -178,7 +172,6 @@ const SwipeableProjections = ({ config, setConfig, handleAddProyeccion, handleRe
                         </Button>
                     </Box>
                 ))}
-            </SwipeableViews>
         </Box>
     );
 };
