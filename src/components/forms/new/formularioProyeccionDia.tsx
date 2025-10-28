@@ -1,7 +1,6 @@
 import {Button, Checkbox, Divider, TextField,} from "@mui/material";
 import {IProyeccionesPeliculaDia} from "@/interfaces/formularios";
 import {useEffect, useState} from "react";
-import DatePicker from "react-datepicker";
 import {format} from "date-fns";
 import {es} from "date-fns/locale";
 
@@ -57,12 +56,14 @@ export const FormularioProyeccionDia = ({
     return (
         <div className="flex flex-col space-y-4 mt-4 border-b-2 pb-2">
             {/* Selector de fecha */}
-            <DatePicker
+            <input
                 id="dia-input"
-                value={format(config.dia, "EEE, d MMM", { locale: es })}
-                onChange={(date: Date) => onChange({ dia: date, horarios: config.horarios }, index)}
-                locale={es}
-                dateFormat="EEE, d MMM"
+                type="date"
+                value={format(config.dia, "yyyy-MM-dd")}
+                onChange={(e) => {
+                    const date = new Date(e.target.value);
+                    onChange({ dia: date, horarios: config.horarios }, index);
+                }}
                 className="w-full text-center border-2 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
