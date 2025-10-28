@@ -147,9 +147,9 @@ const SwipeableProjections = ({ config, setConfig, handleAddProyeccion, handleRe
             </Stack>
 
             {/* Carrusel */}
-                {config.proyecciones.filter((x, i) => i == currentIndex).map((proyeccion: ICarteleraPeliculaHorario, index: number) => (
+                {config.proyecciones.map((proyeccion: ICarteleraPeliculaHorario, index: number) => (
                     <Box
-                        key={`peliculaHorario-${index}`}
+                        key={`peliculaHorario-${currentIndex}`}
                         sx={{
                             justifyContent: 'center',
                             alignItems: 'center',
