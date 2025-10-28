@@ -8,8 +8,8 @@ import {IPelicula} from "@/app/cartelera-cara-b/page";
 export const FotoPelicula = ({cine, pelicula} : {cine: ICine, pelicula: IPelicula|IPeliculaNew}) => {
     return (
         <div className="relative row-span-3 w-full h-full flex items-center justify-center">
-            <div className={`bg-${cine.color} p-1 flex items-center justify-center rounded-lg`}
-                 style={{aspectRatio: '340/500'}}>
+            <div className={`p-1 flex items-center justify-center rounded-lg`}
+                 style={{aspectRatio: '340/500', backgroundColor: cine.colorRef.dark}}>
                 <img
                     alt="foto_pelicula"
                     className={`object-cover border-${cine.color} rounded-lg`}

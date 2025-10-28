@@ -23,7 +23,9 @@ export default function RootLayout({
     </head>
     <body className={inter.className}>
     <div className="bg-vera text-vera border-vera hidden"></div>
-    <div className="bg-regio text-regio border-regio hidden"></div>
+    <div className="bg-dark-vera hidden"></div>
+    <div className="bg-regio text-regio border-regio hidden "></div>
+    <div className="bg-dark-regio hidden"></div>
     {children}
     </body>
     </html>
