@@ -4,6 +4,7 @@ export interface ICine {
     nombre: string;
     corto: string;
     color: string;
+    logo: string;
     horaDefectoPelicula?: string;
     colorRef: {
         normal: string;
@@ -27,6 +28,7 @@ export const cines = [
         nombre: "Cine Municipal Regio",
         corto: "regio",
         color: "regio",
+        logo: "/assets/logos/cine-regio.png",
         colorRef: {
             normal: "#dc3545",
             dark: "#bd2c3a",
@@ -49,6 +51,7 @@ export const cines = [
         nombre: "Cine Municipal Terraza de Vera",
         corto: "vera",
         color: "vera",
+        logo: "/assets/logos/cine-vera.png",
         colorRef: {
             normal: "#2d438f",
             dark: "#0e226a",
@@ -69,6 +72,7 @@ export const cines = [
         nombre: "Cine Tenis de Garrucha",
         corto: "garrucha",
         color: "naranja",
+        logo: "/assets/logos/cine-vera.png",
         servicios: [],
         colorRef: {
             normal: "#f7770e",

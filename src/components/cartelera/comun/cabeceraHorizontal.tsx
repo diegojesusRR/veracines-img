@@ -36,7 +36,7 @@ export const CabeceraHorizontal = ({cine}: { cine: ICine }) => {
                         className="bg-white shadow-lg  flex items-center justify-center"
                         style={{width: 110, height: 110}}
                     >
-                        <Image src={logoTerraza} alt="Logo del cine" width={80} height={80} className="object-contain"/>
+                        <Image src={cine.id == 1 ? logoRegio : logoTerraza} alt="Logo del cine" width={80} height={80} className="object-contain"/>
                     </div>
                     <div
                         className={`shadow-lg flex items-center justify-center absolute w-[80px] h-[80px] top-[8px] left-[8px]`}
