@@ -74,7 +74,7 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
                     color: '#222'
                 }}
             >
-                <div><strong style={{ color: '#2d438f', fontSize: '1.6em'}}>
+                <div><strong style={{ color: cine.colorRef.normal, fontSize: '1.6em'}}>
                     {diaSemanaTexto} {dia.dia.getDate()} {mesTexto}
                 </strong></div>
                 <div style={{textAlign: "center"}}>{horariosText}</div>
@@ -106,7 +106,7 @@ export const PeliculaConHorario = ({cine, proyeccion, numPeliculas}: { cine: ICi
                         } flex flex-col space-around justify-top uppercase font-bold text-center`}
                     >
                         <div style={{marginBottom: '10px'}} className={'underline'}>
-                            <strong style={{color: '#2d438f', fontSize: numPeliculas == 3 ? '1em' : '1.4em'}}>
+                            <strong style={{color: cine.colorRef.dark, fontSize: numPeliculas == 3 ? '1em' : '1.4em'}}>
                                 {proyeccion.pelicula.titulo}
                             </strong>
                         </div>
