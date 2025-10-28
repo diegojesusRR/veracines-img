@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import logo from "@/public/images/logo-cine.png";
+import logoTerraza from "@/public/images/logo-cine.png";
+import logoRegio from "@/public/images/logo-regio.png";
 import {ICine} from "@/data/cines";
 import {Monoton as Font} from 'next/font/google';
+import {backgroundColor} from "html2canvas/dist/types/css/property-descriptors/background-color";
 
 const font = Font({
     subsets: ["latin"],
@@ -12,7 +14,8 @@ const font = Font({
 export const CabeceraHorizontal = ({cine}: { cine: ICine }) => {
     return (
         <div
-            className={`relative w-full h-36 bg-${cine?.color} flex items-center px-8 justify-between`}
+            className={`relative w-full h-36 flex items-center px-8 justify-between`}
+            style={{backgroundColor: cine.colorRef.normal}}
         >
             {/* Fondo con sombreado dinámico */}
             <div
@@ -30,14 +33,14 @@ export const CabeceraHorizontal = ({cine}: { cine: ICine }) => {
                 <div style={{position: "relative"}}>
 
                     <div
-                        className="bg-white shadow-lg shadow-gray-500/50 flex items-center justify-center"
+                        className="bg-white shadow-lg  flex items-center justify-center"
                         style={{width: 110, height: 110}}
                     >
-                        <Image src={logo} alt="Logo del cine" width={80} height={80} className="object-contain"/>
+                        <Image src={logoTerraza} alt="Logo del cine" width={80} height={80} className="object-contain"/>
                     </div>
                     <div
-                        className="bg-[#0e226a] shadow-lg shadow-gray-500/50 flex items-center justify-center absolute w-[80px] h-[80px] top-[8px] left-[8px]"
-                        style={{width: 110, height: 110, zIndex: -1}}
+                        className={`shadow-lg flex items-center justify-center absolute w-[80px] h-[80px] top-[8px] left-[8px]`}
+                        style={{width: 110, height: 110, zIndex: -1, backgroundColor: cine.colorRef.dark}}
                     />
                 </div>
 
@@ -60,8 +63,9 @@ export const CabeceraHorizontal = ({cine}: { cine: ICine }) => {
                             height: "80px",
                             fontSize: "1.2rem",
                             fontWeight: "bold",
-                            color: "#0e226a", // Color llamativo para el precio
-                            border: "2px solid #0e226a",
+                            color: cine.colorRef.dark, // Color llamativo para el precio
+                            border: "2px solid",
+                            borderColor: cine.colorRef.dark,
                             boxShadow: "0 5px 10px rgba(0, 0, 0, 0.15)",
                             textAlign: "center",
                         }}

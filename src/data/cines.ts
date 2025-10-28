@@ -24,12 +24,14 @@ export interface ICine {
 export const cines = [
     {
         id: 1,
-        nombre: "Cine Regio",
+        nombre: "Cine Municipal Regio",
         corto: "regio",
         color: "regio",
         colorRef: {
             normal: "#dc3545",
-            dark: "#0e226a",
+            dark: "#bd2c3a",
+            // normal: "#2d438f",
+            // dark: "#0e226a",
         },
         servicios: ["pops", "climate", "2k", "ice-creams"],
         horaDefectoPelicula: "20:00",
